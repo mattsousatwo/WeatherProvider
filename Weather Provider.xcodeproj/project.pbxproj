@@ -11,6 +11,9 @@
 		60248C5B2A15B4F2008470E9 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5A2A15B4F2008470E9 /* Background.swift */; };
 		60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */; };
 		607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE52A1687E500910594 /* HomeViewModel.swift */; };
+		607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE82A168DC400910594 /* SplashScreen.swift */; };
+		607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */; };
+		607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EED2A168E6000910594 /* WPViewModel.swift */; };
 		60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F272892A0C998E0025711F /* Weather_ProviderApp.swift */; };
 		60F2728C2A0C998E0025711F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2728B2A0C998E0025711F /* ContentView.swift */; };
 		60F2728E2A0C998F0025711F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F2728D2A0C998F0025711F /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 		60248C5A2A15B4F2008470E9 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+EXT.swift"; sourceTree = "<group>"; };
 		607A5EE52A1687E500910594 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		607A5EE82A168DC400910594 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		607A5EED2A168E6000910594 /* WPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPViewModel.swift; sourceTree = "<group>"; };
 		60F272862A0C998E0025711F /* Weather Provider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Provider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F272892A0C998E0025711F /* Weather_ProviderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_ProviderApp.swift; sourceTree = "<group>"; };
 		60F2728B2A0C998E0025711F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,9 +63,27 @@
 			path = "Data Percistance";
 			sourceTree = "<group>";
 		};
+		607A5EE72A168D2200910594 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				607A5EE82A168DC400910594 /* SplashScreen.swift */,
+				607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		607A5EEC2A168E4600910594 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				607A5EED2A168E6000910594 /* WPViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		60D9E7D62A1025BA00037683 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				607A5EE72A168D2200910594 /* Splash Screen */,
 				60248C552A153B2E008470E9 /* Home */,
 			);
 			path = Module;
@@ -84,6 +108,7 @@
 		60F272882A0C998E0025711F /* Weather Provider */ = {
 			isa = PBXGroup;
 			children = (
+				607A5EEC2A168E4600910594 /* Protocols */,
 				60D9E7D62A1025BA00037683 /* Module */,
 				60F272982A0C9A1D0025711F /* Reusable Views */,
 				60F272972A0C9A120025711F /* Model */,
@@ -191,8 +216,11 @@
 			files = (
 				60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */,
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
+				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				60F2728C2A0C998E0025711F /* ContentView.swift in Sources */,
+				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
+				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
 				60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */,
 				60248C5B2A15B4F2008470E9 /* Background.swift in Sources */,
 			);

@@ -15,7 +15,7 @@ struct HomeView: View {
     
     var body: some View {
         
-        viewModel.homeViewBody()
+        viewModel.mainBody()
         
     }
 }
