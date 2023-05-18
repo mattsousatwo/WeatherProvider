@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// Home view is used to display all the main weather information
 struct HomeView: View {
+    
+    /// View Model for the Home Module
+    let viewModel = HomeViewModel()
+    
     var body: some View {
-        Background {
-            Text("Hello from Weather Provider")
-        }
+        
+        viewModel.homeViewBody()
+        
     }
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Background is a ZStack with the background color embedded inside it 
 struct Background<Content: View>: View {
     @ViewBuilder var someView: Content
     
