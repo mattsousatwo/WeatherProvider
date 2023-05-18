@@ -12,10 +12,12 @@ import SwiftUI
 struct SplashScreenViewModel: WPViewModel {
     
     func mainBody() -> some View {
-        return Text("")
+        Text("")
     }
     
-    
-    
+}
+
+// [-----] Views 
+extension SplashScreenViewModel {
     
 }

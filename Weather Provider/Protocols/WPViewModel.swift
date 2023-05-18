@@ -15,9 +15,6 @@ protocol WPViewModel {
     /// Main View used to display the body of the view
     func mainBody() -> swiftUIView
     
-    
-} 
-
-
+}
 
 
