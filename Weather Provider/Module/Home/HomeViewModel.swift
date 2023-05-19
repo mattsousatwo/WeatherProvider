@@ -10,16 +10,14 @@ import SwiftUI
 
 /// Struct Containing all the views for the Home Module 
 struct HomeViewModel: WPViewModel {
-    
-    /// Main view for the Home View
     func mainBody() -> some View {
-        return Background {
-            
-            testText()
-        }
-        
+        viewStructure()
     }
-    
+    internal func viewStructure() -> some View  {
+        Background {
+            
+        }
+    }
     /// Background for the main view
     func testText() -> some View {
         return VStack {

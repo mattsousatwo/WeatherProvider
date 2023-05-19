@@ -12,9 +12,9 @@ import SwiftUI
 struct OnboardingViewModel: WPViewModel {
     
     /// Main body function for the Onbaording View - contains all of the views in the body of OnboardingView
-    func mainBody() -> some View {
+    func mainBody() -> some View  {
         Background {
-            onbaordingMessage()
+            viewStructure()
         }
     }
     
@@ -40,51 +40,6 @@ extension OnboardingViewModel {
             .multilineTextAlignment(.center)
     }
     
-    /// Text View describing the first feature in the list
-    private func featureOneText() -> some View {
-        Text("**Accurate and Up-to-Date Forecasts**: Our app uses the weather data to provide you with the most accurate and reliable forecasts, so you can plan your day with confidence.")
-            .foregroundColor(Color("TextColor"))
-            .fontDesign(.rounded)
-            .fontWeight(.light)
-            .padding(.bottom, 3)
-    }
-    
-    /// Text View describing the second feature in the list
-    private func featureTwoText() -> some View {
-        Text("**Easy to Use**: With a user-friendly interface and intuitive design, our app makes it easy to navigate and access all of its amazing features.")
-            .foregroundColor(Color("TextColor"))
-            .fontDesign(.rounded)
-            .fontWeight(.light)
-            .padding(.bottom, 3)
-    }
-    
-    /// Text View describing the third feature in the list
-    private func featureThreeText() -> some View {
-        Text("**Customizable Settings**: You can customize the app to suit your preferences and get the weather information that matters the most to you.")
-            .foregroundColor(Color("TextColor"))
-            .fontDesign(.rounded)
-            .fontWeight(.light)
-            
-    }
-}
-
-// Onboarding Message Icons
-extension OnboardingViewModel {
-    
-    /// Icon Image for feature One
-    private func featureOneIcon() -> some View {
-        Image(systemName: "sun.max.trianglebadge.exclamationmark")
-    }
-    
-    /// Icon Image for feature Two
-    private func featureTwoIcon() -> some View {
-        Image(systemName: "sparkles")
-    }
-    
-    /// Icon Image for feature Three
-    private func featureThreeIcon() -> some View {
-        Image(systemName: "gear")
-    }
 }
 
 // Labels
@@ -92,20 +47,24 @@ extension OnboardingViewModel {
     
     /// Feature one label
     func featureOneLabel() -> some View {
-        Label(title: featureOneText, icon: featureOneIcon)
+        WPLabel(title: "Accurate and Up-to-Date Forecasts",
+                text: "Our app uses the weather data to provide you with the most accurate and reliable forecasts, so you can plan your day with confidence.",
+                imageName: "sun.max.trianglebadge.exclamationmark")
     }
     
     /// Feature two label
     func featureTwoLabel() -> some View {
-        Label(title: featureTwoText, icon: featureTwoIcon)
+        WPLabel(title: "Easy to Use",
+                text: "With a user-friendly interface and intuitive design, our app makes it easy to navigate and access all of its amazing features.",
+                imageName: "sparkles")
     }
     
     /// Feature three label
     func featureThreeLabel() -> some View {
-        Label(title: featureThreeText, icon: featureThreeIcon)
+        WPLabel(title: "Customizable Settings",
+                text: "You can customize the app to suit your preferences and get the weather information that matters the most to you.",
+                imageName: "gear")
     }
-
-
 
 }
 
@@ -124,9 +83,9 @@ extension OnboardingViewModel {
 
 // Structure
 extension OnboardingViewModel {
-    
+
     /// View containing all of the messages within the Onboarding View
-    private func onbaordingMessage() -> some View {
+    internal func viewStructure() -> some View  {
         return VStack {
             onboardingHeading()
             Spacer()

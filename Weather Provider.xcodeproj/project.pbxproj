@@ -10,6 +10,8 @@
 		60248C572A153B3D008470E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C562A153B3D008470E9 /* HomeView.swift */; };
 		60248C5B2A15B4F2008470E9 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5A2A15B4F2008470E9 /* Background.swift */; };
 		60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */; };
+		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
+		603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E82A17242000328253 /* WPLabelViewModel.swift */; };
 		607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE52A1687E500910594 /* HomeViewModel.swift */; };
 		607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE82A168DC400910594 /* SplashScreen.swift */; };
 		607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */; };
@@ -27,6 +29,8 @@
 		60248C562A153B3D008470E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60248C5A2A15B4F2008470E9 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+EXT.swift"; sourceTree = "<group>"; };
+		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
+		603E20E82A17242000328253 /* WPLabelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabelViewModel.swift; sourceTree = "<group>"; };
 		607A5EE52A1687E500910594 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		607A5EE82A168DC400910594 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 				60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */,
 			);
 			path = "Data Percistance";
+			sourceTree = "<group>";
+		};
+		603E20E72A17240600328253 /* WPLabel */ = {
+			isa = PBXGroup;
+			children = (
+				603E20E52A17203500328253 /* WPLabel.swift */,
+				603E20E82A17242000328253 /* WPLabelViewModel.swift */,
+			);
+			path = WPLabel;
 			sourceTree = "<group>";
 		};
 		607A5EE72A168D2200910594 /* Splash Screen */ = {
@@ -154,6 +167,7 @@
 		60F272982A0C9A1D0025711F /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				603E20E72A17240600328253 /* WPLabel */,
 				60248C5A2A15B4F2008470E9 /* Background.swift */,
 				607A5EF42A16B15F00910594 /* WPText.swift */,
 				607A5EF62A16B8FD00910594 /* WPButton.swift */,
@@ -235,9 +249,11 @@
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
+				603E20E62A17203500328253 /* WPLabel.swift in Sources */,
 				607A5EF52A16B15F00910594 /* WPText.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
+				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,

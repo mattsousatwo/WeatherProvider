@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 
 /// Protocol indicating all of the views a viewModel should have
-protocol WPViewModel {
-    associatedtype swiftUIView = View
+public protocol WPViewModel {
+    associatedtype MainBodyView: View
+    associatedtype StructureView: View
     
     /// Main View used to display the body of the view
-    func mainBody() -> swiftUIView
-    
+    func mainBody() -> MainBodyView
+    func viewStructure() -> StructureView
 }
 
 

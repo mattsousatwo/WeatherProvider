@@ -11,13 +11,13 @@ import SwiftUI
 /// Struct to handle all of the views inside the SplashScreen
 struct SplashScreenViewModel: WPViewModel {
     
-    func mainBody() -> some View {
-        Text("")
+    func viewStructure() -> some View {
+        return Text("")
     }
     
-}
-
-// [-----] Views 
-extension SplashScreenViewModel {
+    
+    func mainBody() -> some View  {
+        return Text("")
+    }
     
 }
