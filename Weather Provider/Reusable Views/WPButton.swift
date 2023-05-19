@@ -28,12 +28,11 @@ struct WPButton: View {
         } label: {
             Text(text)
                 .fontWeight(.medium)
-//                .foregroundColor(Color("TextColor"))
+                .foregroundColor(Color("TextColor"))
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 200)
                 .background(Color("Accent"))
-//                .background(Color("Background"))
                 .cornerRadius(12)
         }
         .buttonStyle(PlainButtonStyle() )

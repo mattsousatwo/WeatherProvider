@@ -13,7 +13,7 @@ struct OnboardingViewModel: WPViewModel {
     
     /// Main body function for the Onbaording View - contains all of the views in the body of OnboardingView
     func mainBody() -> some View  {
-        Background {
+        NavigationStack {
             viewStructure()
         }
     }
@@ -25,13 +25,7 @@ extension OnboardingViewModel {
     
     /// Text view with a heading for the onboarding
     private func welcomeHeadingText() -> some View {
-        Text("**Welcome to our Weather App!**")
-            .foregroundColor(Color("TextColor"))
-            .multilineTextAlignment(.center)
-            .font(.largeTitle)
-            .fontDesign(.rounded)
-            .padding(.bottom, 5)
-            .padding(.top, 20)
+        WPOTitle("Welcome to our Weather App!")
     }
     
     /// Text view with a heading for the onboarding
@@ -73,8 +67,12 @@ extension OnboardingViewModel {
     
     /// Button used to dismiss the Onboarding View - should trigger an event that will save the user viewing the onboarding view so it will not be presented again
     func dismissOnboardingViewButton() -> some View {
-        WPButton("Dismiss") {
-            
+//        NavigationLink(destination: ThemePickerView()) {
+////            WPButton("Get Started!") {  }
+//            WPText("Get Started")
+//        }
+        
+        WPNavigationLink(label: "Get Started!") { ThemePickerView()
         }
     }
     
@@ -83,18 +81,20 @@ extension OnboardingViewModel {
 
 // Structure
 extension OnboardingViewModel {
-
+    
     /// View containing all of the messages within the Onboarding View
     internal func viewStructure() -> some View  {
-        return VStack {
-            onboardingHeading()
-            Spacer()
-            onboardingFeaturesList()
-            Spacer()
-            dismissOnboardingViewButton()
-            Spacer()
+        return Background {
+            VStack {
+                onboardingHeading()
+                Spacer()
+                onboardingFeaturesList()
+                Spacer()
+                dismissOnboardingViewButton()
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
     }
     
     /// View stack with all of the onboarding heading messages

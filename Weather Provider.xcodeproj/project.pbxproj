@@ -10,6 +10,10 @@
 		60248C572A153B3D008470E9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C562A153B3D008470E9 /* HomeView.swift */; };
 		60248C5B2A15B4F2008470E9 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5A2A15B4F2008470E9 /* Background.swift */; };
 		60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */; };
+		6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */; };
+		6029FAAD2A17FBE500D901B8 /* ThemePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */; };
+		6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */; };
+		6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB02A18031600D901B8 /* WPNavigationLink.swift */; };
 		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
 		603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E82A17242000328253 /* WPLabelViewModel.swift */; };
 		607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE52A1687E500910594 /* HomeViewModel.swift */; };
@@ -29,6 +33,10 @@
 		60248C562A153B3D008470E9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60248C5A2A15B4F2008470E9 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+EXT.swift"; sourceTree = "<group>"; };
+		6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
+		6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewModel.swift; sourceTree = "<group>"; };
+		6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPOTitle.swift; sourceTree = "<group>"; };
+		6029FAB02A18031600D901B8 /* WPNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPNavigationLink.swift; sourceTree = "<group>"; };
 		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
 		603E20E82A17242000328253 /* WPLabelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabelViewModel.swift; sourceTree = "<group>"; };
 		607A5EE52A1687E500910594 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +81,15 @@
 			path = "Data Percistance";
 			sourceTree = "<group>";
 		};
+		6029FAA92A17FBC200D901B8 /* Theme Picker */ = {
+			isa = PBXGroup;
+			children = (
+				6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */,
+				6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */,
+			);
+			path = "Theme Picker";
+			sourceTree = "<group>";
+		};
 		603E20E72A17240600328253 /* WPLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +128,7 @@
 		60D9E7D62A1025BA00037683 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				6029FAA92A17FBC200D901B8 /* Theme Picker */,
 				607A5EEF2A16A28F00910594 /* Onboarding  */,
 				607A5EE72A168D2200910594 /* Splash Screen */,
 				60248C552A153B2E008470E9 /* Home */,
@@ -171,6 +189,8 @@
 				60248C5A2A15B4F2008470E9 /* Background.swift */,
 				607A5EF42A16B15F00910594 /* WPText.swift */,
 				607A5EF62A16B8FD00910594 /* WPButton.swift */,
+				6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */,
+				6029FAB02A18031600D901B8 /* WPNavigationLink.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -247,10 +267,14 @@
 			files = (
 				60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */,
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
+				6029FAAD2A17FBE500D901B8 /* ThemePickerViewModel.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
+				6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */,
 				603E20E62A17203500328253 /* WPLabel.swift in Sources */,
 				607A5EF52A16B15F00910594 /* WPText.swift in Sources */,
+				6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */,
+				6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
