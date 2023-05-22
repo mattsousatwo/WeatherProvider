@@ -107,7 +107,7 @@ extension OnboardingViewModel {
     
     /// View stack with a list of onboarding features
     private func onboardingFeaturesList() -> some View {
-        VStack {
+        VStack(alignment: .leading) {
             featureOneLabel()
             featureTwoLabel()
             featureThreeLabel()

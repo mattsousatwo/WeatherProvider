@@ -12,7 +12,9 @@ import SwiftUI
 struct ThemePickerViewModel: WPViewModel {
     
     func mainBody() -> some View {
-        viewStructure()
+        ThemePagePicker()
+            
+        
     }
     
     internal func viewStructure() -> some View {
@@ -20,7 +22,6 @@ struct ThemePickerViewModel: WPViewModel {
             VStack {
                 pickerHeading()
                 Spacer()
-                themePicker()
                 Spacer()
                 WPNavigationLink(label: "Next Page") {
                     Text("Next Page")
@@ -35,15 +36,19 @@ struct ThemePickerViewModel: WPViewModel {
 extension ThemePickerViewModel {
     
     /// Heading for the Theme Picker
-    private func pickerHeading() -> some View {
+    internal func pickerHeading() -> some View {
         WPOTitle("Choose a Theme")
     }
     
-    /// Frame used to select the theme 
-    private func themePicker() -> some View {
-        return RoundedRectangle(cornerRadius: 12)
-            .frame(width: UIScreen.main.bounds.width / 2 + 100,
-                   height: UIScreen.main.bounds.height / 2)
-            .foregroundColor(Color("Accent"))
+}
+
+
+
+struct ThemePickerViewModel_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemePickerView()
     }
 }
+
+
+

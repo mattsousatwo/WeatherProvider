@@ -10,8 +10,10 @@ import SwiftUI
 /// View used to select the users desired theme
 struct ThemePickerView: View {
     let viewModel = ThemePickerViewModel()
+    
     var body: some View {
         viewModel.mainBody()
+//        themePagePicker()
     }
 }
 
