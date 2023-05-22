@@ -24,7 +24,7 @@ struct WPNavigationLink<Destination: View>: View {
                 .foregroundColor(Color("TextColor"))
                 .foregroundColor(.white)
                 .padding()
-                .frame(width: 200)
+                .frame(width: 225)
                 .background(Color("Accent"))
                 .cornerRadius(12)
         }

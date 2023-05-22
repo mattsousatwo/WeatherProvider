@@ -17,7 +17,7 @@ struct OnboardingWeatherDisplayView: View {
         
         structure()
             .padding()
-            .background(theme.backgroundColor)
+            .background(theme.weatherBackground)
             .cornerRadius(12)
             
         
@@ -110,6 +110,7 @@ struct OnboardingWeatherDisplayView_Previews: PreviewProvider {
         OnboardingWeatherDisplayView(theme: .constant(Theme(name: "themeName",
                                                             textColor: .white,
                                                             backgroundColor: .indigo,
+                                                            weatherBackground: Color("Background"),
                                                             accentColor: .yellow)))
     }
 }

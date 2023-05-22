@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ThemePagePicker: View {
     @State var themeIndex: Int = 0
-    @State var currentTheme: Theme = ThemeList.defaultTheme.theme
+    @State var currentTheme: Theme = ThemeList.one.theme
     
     var body: some View {
         themePagePicker()
@@ -27,12 +27,13 @@ struct ThemePagePicker: View {
                         .tag(1)
                     pageView()
                         .tag(2)
+                    pageView()
+                        .tag(3)
                 }
                 .tabViewStyle(PageTabViewStyle())
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .frame(maxHeight: geo.size.height * 0.8, alignment: .center)
+//                .frame(maxHeight: geo.size.height * 0.8, alignment: .center)
             } // VStack
-            
         }// Geo
         .background(
             currentTheme.backgroundColor
@@ -43,44 +44,59 @@ struct ThemePagePicker: View {
                 switchColor()
             }
         }
-        
     } // Func
     
     /// Function to control the background color
     func switchColor() {
         switch themeIndex {
             case 0:
-                currentTheme = ThemeList.defaultTheme.theme
+                currentTheme = ThemeList.one.theme
             case 1:
-                currentTheme = ThemeList.indigo.theme
+                currentTheme = ThemeList.two.theme
             case 2:
-                currentTheme = ThemeList.purple.theme
+                currentTheme = ThemeList.three.theme
+            case 3:
+                currentTheme = ThemeList.four.theme
             default:
-                currentTheme = ThemeList.teal.theme
+                currentTheme = ThemeList.one.theme
         }
     }
     
     func pageView() -> some View {
         return VStack {
-            WPOTitle("Choose a Theme")
+            WPOTitle("Choose a Theme", color: currentTheme.textColor)
+            Spacer()
+            WPOTitle(currentTheme.name, color: currentTheme.textColor)
             OnboardingWeatherDisplayView(theme: $currentTheme)
                 .padding()
+            
+            Spacer()
+            
+            WPButton("Select",
+                     accent: currentTheme.weatherBackground,
+                     textColor: currentTheme.textColor) {
+                print("Select Theme \(currentTheme.name)")
+            }
+            Spacer()
+            
+                
         }
+        
+
+        
         
     }
     
 }
 
 
-
-
-
 struct ThemePagePicker_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ThemePagePicker(themeIndex: 0)
-            ThemePagePicker(themeIndex: 1)
-            ThemePagePicker(themeIndex: 2)
+            ThemePagePicker(themeIndex: 0, currentTheme: ThemeList.one.theme)
+            ThemePagePicker(themeIndex: 1, currentTheme: ThemeList.two.theme)
+            ThemePagePicker(themeIndex: 2, currentTheme: ThemeList.three.theme)
+            ThemePagePicker(themeIndex: 3, currentTheme: ThemeList.four.theme)
         }
     }
 }

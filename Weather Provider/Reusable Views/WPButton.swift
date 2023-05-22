@@ -14,11 +14,15 @@ import SwiftUI
 ///   - action: The buttons functionality
 struct WPButton: View {
     let text: String
+    let accent: Color
+    let textColor: Color
     let action: () -> Void
     
     
-    public init(_ text: String, action: @escaping () -> Void) {
+    public init(_ text: String, accent: Color = Color("Accent"), textColor: Color = Color("TextColor"), action: @escaping () -> Void) {
         self.text = text
+        self.accent = accent
+        self.textColor = textColor
         self.action = action
     }
     
@@ -28,11 +32,10 @@ struct WPButton: View {
         } label: {
             Text(text)
                 .fontWeight(.medium)
-                .foregroundColor(Color("TextColor"))
-                .foregroundColor(.white)
+                .foregroundColor(textColor)
                 .padding()
-                .frame(width: 200)
-                .background(Color("Accent"))
+                .frame(width: 225)
+                .background(accent)
                 .cornerRadius(12)
         }
         .buttonStyle(PlainButtonStyle() )

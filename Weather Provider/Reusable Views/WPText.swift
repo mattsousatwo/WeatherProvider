@@ -11,17 +11,19 @@ import SwiftUI
 struct WPText: View {
     
     /// Initalizer for WPText - sets the string variable
-    init(_ text: String) {
+    init(_ text: String, color: Color = Color("TextColor")) {
         self.textString = text
+        self.color = color 
     }
     /// String property for the Text View 
     private let textString: String
+    private let color: Color
     
     var body: some View {
         Text(textString)
             .fontDesign(.rounded)
             .fontWeight(.light)
-            .foregroundColor(Color("TextColor"))
+            .foregroundColor(color)
     }
 }
 

@@ -9,9 +9,11 @@ import SwiftUI
 
 /// Title View used for the Weather Provider Onboarding view
 struct WPOTitle: View {
-    let text: String
-    init(_ text: String) {
+    private let text: String
+    private let color: Color
+    init(_ text: String, color: Color = Color("TextColor")) {
         self.text = text
+        self.color = color
     }
     var body: some View {
         welcomeHeadingText()
@@ -19,7 +21,7 @@ struct WPOTitle: View {
     /// Text view with a heading for the onboarding
     private func welcomeHeadingText() -> some View {
         Text("**\(text)**")
-            .foregroundColor(Color("TextColor"))
+            .foregroundColor(color)
             .multilineTextAlignment(.center)
             .font(.largeTitle)
             .fontDesign(.rounded)

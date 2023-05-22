@@ -10,37 +10,37 @@ import SwiftUI
 
 /// List of themes to choose from
 enum ThemeList {
-    case defaultTheme
-    case indigo
-    case purple
-    case teal
-    
-    
-    
-    
+    case one
+    case two
+    case three
+    case four
     
     var theme: Theme {
         switch self {
-            case .defaultTheme:
-                return Theme(name: "Default",
+            case .one:
+                return Theme(name: "Modern",
                              textColor: Color("TextColor"),
                              backgroundColor: Color("Background"),
+                             weatherBackground: Color("WeatherBackground"),
                              accentColor: Color("Accent"))
-            case .indigo:
-                return Theme(name: "Name",
-                             textColor: .white,
-                             backgroundColor: .indigo,
-                             accentColor: .yellow)
-            case .purple:
-                return Theme(name: "Name",
-                             textColor: .white,
-                             backgroundColor: .purple,
-                             accentColor: .yellow)
-            case .teal:
-                return Theme(name: "Name",
-                             textColor: .white,
-                             backgroundColor: .teal,
-                             accentColor: .yellow)
+            case .two:
+                return Theme(name: "Jungle",
+                             textColor: Color("G-TextColor"),
+                             backgroundColor: Color("G-Background"),
+                             weatherBackground: Color("G-WeatherBackground"),
+                             accentColor: Color("G-Accent"))
+            case .three:
+                return Theme(name: "Charcoal",
+                             textColor: Color("B-TextColor"),
+                             backgroundColor: Color("B-Background"),
+                             weatherBackground: Color("B-WeatherBackground"),
+                             accentColor: Color("B-Accent"))
+            case .four:
+                return Theme(name: "Aqua",
+                             textColor: Color("T-TextColor"),
+                             backgroundColor: Color("T-Background"),
+                             weatherBackground: Color("T-WeatherBackground"),
+                             accentColor: Color("T-Accent"))
         }
     }
 
