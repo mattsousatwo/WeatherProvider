@@ -16,6 +16,10 @@ class ThemeManager {
         self.currentTheme = currentTheme
     }
     
+    init() {
+        self.currentTheme = ThemeList.one.theme
+    }
+    
 }
 
 extension ThemeManager {

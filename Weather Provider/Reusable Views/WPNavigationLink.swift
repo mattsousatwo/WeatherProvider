@@ -10,22 +10,24 @@ import SwiftUI
 /// Navigation Link to be used in place of NavigationLink - Is approved by WP guidelines
 struct WPNavigationLink<Destination: View>: View {
     let label: String
+    let theme: Theme
     @ViewBuilder var destination: Destination
     
-    init(label: String, @ViewBuilder destination: () -> Destination) {
+    init(label: String, theme: Theme = ThemeList.one.theme, @ViewBuilder destination: () -> Destination) {
         self.label = label
         self.destination = destination()
+        self.theme = theme
     }
     
     var body: some View {
         NavigationLink(destination: destination) {
             Text(label)
                 .fontWeight(.medium)
-                .foregroundColor(Color("TextColor"))
+                .foregroundColor(theme.textColor)
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 225)
-                .background(Color("Accent"))
+                .background(theme.weatherBackground)
                 .cornerRadius(12)
         }
     }

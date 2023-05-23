@@ -11,8 +11,6 @@ import SwiftUI
 struct OnboardingWeatherDisplayView: View {
     
     @Binding var theme: Theme
-    
-    let viewModel = OnboardingWeatherDisplayViewModel()
     var body: some View {
         
         structure()

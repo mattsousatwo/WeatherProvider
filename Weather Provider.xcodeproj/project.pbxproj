@@ -11,13 +11,9 @@
 		60248C5B2A15B4F2008470E9 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5A2A15B4F2008470E9 /* Background.swift */; };
 		60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */; };
 		6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */; };
-		6029FAAD2A17FBE500D901B8 /* ThemePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */; };
 		6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */; };
 		6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB02A18031600D901B8 /* WPNavigationLink.swift */; };
-		6029FAB32A19640200D901B8 /* ThemePagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB22A19640200D901B8 /* ThemePagePicker.swift */; };
-		6029FAB52A19698900D901B8 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB42A19698900D901B8 /* ThemeColor.swift */; };
 		6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB92A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift */; };
-		6029FABC2A1BAD7D00D901B8 /* OnboardingWeatherDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FABB2A1BAD7D00D901B8 /* OnboardingWeatherDisplayViewModel.swift */; };
 		6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FABD2A1BAED800D901B8 /* ThemeManager.swift */; };
 		6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC02A1BAF3300D901B8 /* Theme.swift */; };
 		6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */; };
@@ -31,6 +27,8 @@
 		607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EF22A16A2A800910594 /* OnboardingViewModel.swift */; };
 		607A5EF52A16B15F00910594 /* WPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EF42A16B15F00910594 /* WPText.swift */; };
 		607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EF62A16B8FD00910594 /* WPButton.swift */; };
+		60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */; };
+		60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */; };
 		60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F272892A0C998E0025711F /* Weather_ProviderApp.swift */; };
 		60F2728E2A0C998F0025711F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F2728D2A0C998F0025711F /* Assets.xcassets */; };
 		60F272912A0C998F0025711F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F272902A0C998F0025711F /* Preview Assets.xcassets */; };
@@ -41,13 +39,9 @@
 		60248C5A2A15B4F2008470E9 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		60248C5F2A15C39E008470E9 /* FileManager+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+EXT.swift"; sourceTree = "<group>"; };
 		6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerView.swift; sourceTree = "<group>"; };
-		6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePickerViewModel.swift; sourceTree = "<group>"; };
 		6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPOTitle.swift; sourceTree = "<group>"; };
 		6029FAB02A18031600D901B8 /* WPNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPNavigationLink.swift; sourceTree = "<group>"; };
-		6029FAB22A19640200D901B8 /* ThemePagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePagePicker.swift; sourceTree = "<group>"; };
-		6029FAB42A19698900D901B8 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		6029FAB92A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWeatherDisplayView.swift; sourceTree = "<group>"; };
-		6029FABB2A1BAD7D00D901B8 /* OnboardingWeatherDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWeatherDisplayViewModel.swift; sourceTree = "<group>"; };
 		6029FABD2A1BAED800D901B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		6029FAC02A1BAF3300D901B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
@@ -61,6 +55,8 @@
 		607A5EF22A16A2A800910594 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		607A5EF42A16B15F00910594 /* WPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPText.swift; sourceTree = "<group>"; };
 		607A5EF62A16B8FD00910594 /* WPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPButton.swift; sourceTree = "<group>"; };
+		60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationView.swift; sourceTree = "<group>"; };
 		60F272862A0C998E0025711F /* Weather Provider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Provider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F272892A0C998E0025711F /* Weather_ProviderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_ProviderApp.swift; sourceTree = "<group>"; };
 		60F2728D2A0C998F0025711F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,9 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				6029FAAA2A17FBDA00D901B8 /* ThemePickerView.swift */,
-				6029FAAC2A17FBE500D901B8 /* ThemePickerViewModel.swift */,
-				6029FAB22A19640200D901B8 /* ThemePagePicker.swift */,
-				6029FAB42A19698900D901B8 /* ThemeColor.swift */,
 			);
 			path = "Theme Picker";
 			sourceTree = "<group>";
@@ -110,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				6029FAB92A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift */,
-				6029FABB2A1BAD7D00D901B8 /* OnboardingWeatherDisplayViewModel.swift */,
 			);
 			path = "Onboarding Weather Display";
 			sourceTree = "<group>";
@@ -163,6 +155,7 @@
 		60D9E7D62A1025BA00037683 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				60DE8E7D2A1C3997002BD9D8 /* Enable Current Location  */,
 				6029FAB82A1BAD5000D901B8 /* Onboarding Weather Display */,
 				6029FAA92A17FBC200D901B8 /* Theme Picker */,
 				607A5EEF2A16A28F00910594 /* Onboarding  */,
@@ -170,6 +163,15 @@
 				60248C552A153B2E008470E9 /* Home */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		60DE8E7D2A1C3997002BD9D8 /* Enable Current Location  */ = {
+			isa = PBXGroup;
+			children = (
+				60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */,
+				60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */,
+			);
+			path = "Enable Current Location ";
 			sourceTree = "<group>";
 		};
 		60F2727D2A0C998E0025711F = {
@@ -305,7 +307,6 @@
 				6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */,
 				60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */,
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
-				6029FAAD2A17FBE500D901B8 /* ThemePickerViewModel.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
 				6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */,
@@ -315,16 +316,15 @@
 				6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */,
 				6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */,
 				6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */,
-				6029FAB52A19698900D901B8 /* ThemeColor.swift in Sources */,
-				6029FAB32A19640200D901B8 /* ThemePagePicker.swift in Sources */,
 				6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
+				60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */,
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
-				6029FABC2A1BAD7D00D901B8 /* OnboardingWeatherDisplayViewModel.swift in Sources */,
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
+				60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */,
 				60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */,
 				60248C5B2A15B4F2008470E9 /* Background.swift in Sources */,
 			);
@@ -458,6 +458,7 @@
 				DEVELOPMENT_TEAM = SPUKTJZVPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to use your current location to find the weather in your area.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -487,6 +488,7 @@
 				DEVELOPMENT_TEAM = SPUKTJZVPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to use your current location to find the weather in your area.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
