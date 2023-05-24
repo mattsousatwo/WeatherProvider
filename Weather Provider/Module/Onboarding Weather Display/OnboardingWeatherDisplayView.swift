@@ -70,18 +70,24 @@ struct OnboardingWeatherDisplayView: View {
     
     func hourlyWeatherHStack() -> some View {
         
-        let times = ["12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
+        let times: [(time: String, temp: String)] = [("12PM", "58"),
+                                                     ("1PM", "58"),
+                                                     ("2PM", "60"),
+                                                     ("3PM", "63"),
+                                                     ("4PM", "63"),
+                                                     ("5PM", "63")]
         
         return HStack {
-            ForEach(times, id: \.self) { time in
-                hourlyForecast(time: time)
+            ForEach(0..<times.count, id: \.self) { time in
+                hourlyForecast(time: times[time].time,
+                               temp: times[time].temp)
             }
             .padding(.horizontal, 5)
         }
     }
     
     
-    func hourlyForecast(time: String) -> some View {
+    func hourlyForecast(time: String, temp: String) -> some View {
         return VStack {
             Text(time)
                 .fontDesign(.rounded)
@@ -91,7 +97,7 @@ struct OnboardingWeatherDisplayView: View {
                 .frame(width: 25, height: 25)
                 .foregroundColor(.yellow)
                 .padding(.vertical, 5)
-            Text("61°")
+            Text(temp + "°")
                 .fontDesign(.rounded)
                 .foregroundColor(theme.textColor)
                 .padding(.vertical, 5)

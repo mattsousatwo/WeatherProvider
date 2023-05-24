@@ -17,6 +17,8 @@
 		6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FABD2A1BAED800D901B8 /* ThemeManager.swift */; };
 		6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC02A1BAF3300D901B8 /* Theme.swift */; };
 		6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */; };
+		6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA882A1D223E0003377B /* WeatherNetwork.swift */; };
+		6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */; };
 		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
 		603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E82A17242000328253 /* WPLabelViewModel.swift */; };
 		607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE52A1687E500910594 /* HomeViewModel.swift */; };
@@ -45,6 +47,8 @@
 		6029FABD2A1BAED800D901B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		6029FAC02A1BAF3300D901B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
+		6035AA882A1D223E0003377B /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
+		6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDayForecastResults.swift; sourceTree = "<group>"; };
 		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
 		603E20E82A17242000328253 /* WPLabelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabelViewModel.swift; sourceTree = "<group>"; };
 		607A5EE52A1687E500910594 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 				6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		6035AA872A1D22200003377B /* Weather Network */ = {
+			isa = PBXGroup;
+			children = (
+				6035AA882A1D223E0003377B /* WeatherNetwork.swift */,
+				6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */,
+			);
+			path = "Weather Network";
 			sourceTree = "<group>";
 		};
 		603E20E72A17240600328253 /* WPLabel */ = {
@@ -215,6 +228,7 @@
 		60F272972A0C9A120025711F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6035AA872A1D22200003377B /* Weather Network */,
 				6029FABF2A1BAF2500D901B8 /* Theme */,
 				60248C5E2A15C388008470E9 /* Data Percistance */,
 			);
@@ -321,9 +335,11 @@
 				60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */,
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
+				6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
+				6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */,
 				60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */,
 				60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */,
 				60248C5B2A15B4F2008470E9 /* Background.swift in Sources */,
