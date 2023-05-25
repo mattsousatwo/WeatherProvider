@@ -26,6 +26,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         location = locations.first?.coordinate
     }
     
+    func requestLocationAccess() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
             case .authorizedWhenInUse:
@@ -37,6 +41,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 break
             case .denied:
                 authorizationStatus = .denied
+                manager.requestWhenInUseAuthorization()
                 break
             case .notDetermined:
                 authorizationStatus = .notDetermined

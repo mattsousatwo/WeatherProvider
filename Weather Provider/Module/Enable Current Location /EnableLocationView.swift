@@ -9,8 +9,9 @@ import SwiftUI
 import CoreLocationUI
 
 struct EnableLocationView: View {
-    @StateObject var locationManager = LocationManager()
+    @StateObject var locationManager = LocationManager() 
     @ObservedObject var weatherNetwork = WeatherNetwork()
+//    @StateObject var s: LocationManager? = nil
     
     @State private var fetchTenDayForecast: Bool = false
     @State private var dataLoaded: Bool = false
@@ -24,53 +25,49 @@ struct EnableLocationView: View {
             VStack {
                 WPOTitle("Enable Location Services")
                 Spacer()
-
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
-                            
-                                
-                                weatherDisplay(location: weather.location.name,
-                                               time: weather.location.localtime,
-                                               temp: weather.currentWeather.temperatureFahrenheit,
-                                               feelsLike: weather.currentWeather.feelsLikeFahrenheit,
-                                               condition: weather.currentWeather.condition)
-                                Spacer()
-                                WPNavigationLink(label: "Get Started!") {
-                                    Background {
-                                        WPText("Get Started")
-                                    }
+                            weatherDisplay(location: weather.location.name,
+                                           time: weather.location.localtime,
+                                           temp: weather.currentWeather.temperatureFahrenheit,
+                                           feelsLike: weather.currentWeather.feelsLikeFahrenheit,
+                                           condition: weather.currentWeather.condition)
+                            Spacer()
+                            WPNavigationLink(label: "Get Started!") {
+                                Background {
+                                    WPText("Get Started")
                                 }
-                                Spacer()
-                                
-                            
-                            
+                            }
+                            Spacer()
                         } else {
                             VStack {
                                 WPText("Gathering location data...")
                                 Spacer()
                             }
-                                .onAppear {
-                                    let longAndLat = "\(locationManager.locationManager.location?.coordinate.latitude.description ?? "Error Loading"),\(locationManager.locationManager.location?.coordinate.longitude.description ?? "Error Loading")"
-                                    Task {
-                                        weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: longAndLat)
-                                    }
+                            .onAppear {
+                                let longAndLat = "\(locationManager.locationManager.location?.coordinate.latitude.description ?? "Error Loading"),\(locationManager.locationManager.location?.coordinate.longitude.description ?? "Error Loading")"
+                                Task {
+                                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: longAndLat)
                                 }
-
+                            }
                         }
                         
                         
                     case .restricted, .denied:
                         WPText("Current location data was restricted or denied.")
                         Spacer()
-                        LocationButton(.shareCurrentLocation) {
-                            locationManager.requestLocation()
-                        }
+                        WPButton("Request Access", action: {
+//                            locationManager.requestLocationAccess()
+                            locationManager.locationManager.requestWhenInUseAuthorization()
+                            locationManager.locationManager.startUpdatingLocation()
+                            
+// 
+                        })
                         .cornerRadius(12)
-                        .labelStyle(.titleOnly)
-                        .background(Color("WeatherBackground"))
+                        .foregroundColor(Color("TextColor"))
+                        .tint(Color("WeatherBackground"))
                         Spacer()
-                        
                     case .notDetermined:
                         WPText("Gathering location data...")
                         ProgressView()
@@ -80,20 +77,17 @@ struct EnableLocationView: View {
                         ProgressView()
                         Spacer()
                 }
-                
             }
         }
         
     }
-
+    
     func weatherDisplay(location: String, time: String, temp: Double, feelsLike: Double, condition: WeatherCondition) -> some View {
         return VStack {
-            
             WPOTitle(location)
-            
             Text(time)
                 .fontDesign(.rounded)
-//                .foregroundColor(theme.textColor)
+            //                .foregroundColor(theme.textColor)
             WPText("\(condition.text)")
                 .padding(.bottom, 2)
             
@@ -105,7 +99,7 @@ struct EnableLocationView: View {
             
             Text("\(temp)" + "°")
                 .fontDesign(.rounded)
-//                .foregroundColor(theme.textColor)
+            //                .foregroundColor(theme.textColor)
                 .padding(.vertical, 2)
             
             WPText("Feels like: \(temp)" + "°")
@@ -113,6 +107,7 @@ struct EnableLocationView: View {
         .padding()
         .background(Color("WeatherBackground"))
         .cornerRadius(12)
+        
     }
 
 }
@@ -120,11 +115,22 @@ struct EnableLocationView: View {
 struct EnableLocationView_Previews: PreviewProvider {
     static var previews: some View {
         Background {
-            EnableLocationView().weatherDisplay(location: "Cambridge",
-                                                time: "12PM",
-                                                temp: 55.0,
-                                                feelsLike: 52.0,
-                                                condition: WeatherCondition(text: "Sunny", icon: "Icon", code: 12))
+//            EnableLocationView().weatherDisplay(location: "Cambridge",
+//                                                time: "12PM",
+//                                                temp: 55.0,
+//                                                feelsLike: 52.0,
+//                                                condition: WeatherCondition(text: "Sunny", icon: "Icon", code: 12))
+            
+            LocationButton(.shareCurrentLocation) {
+//                locationManager.requestLocation()
+            }
+            
+            .cornerRadius(12)
+            .labelStyle(.titleOnly)
+            .foregroundColor(Color("TextColor"))
+            .tint(Color("WeatherBackground"))
+            
         }
+        .colorScheme(.dark)
     }
 }
