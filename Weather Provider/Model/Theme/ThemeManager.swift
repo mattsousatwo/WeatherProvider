@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// File to control the theme of the application
-class ThemeManager {
+class ThemeManager: ObservableObject {
     
-    var currentTheme: Theme
+    @Published var currentTheme: Theme
     
     init(currentTheme: Theme) {
         self.currentTheme = currentTheme

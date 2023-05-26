@@ -9,13 +9,19 @@ import SwiftUI
 
 /// Background is a ZStack with the background color embedded inside it 
 struct Background<Content: View>: View {
-    @ViewBuilder var someView: Content
+    @ViewBuilder var content: Content
+    let theme: Theme
+    
+    init(_ theme: Theme = ThemeList.one.theme, @ViewBuilder content: () -> Content) {
+        self.theme = theme
+        self.content = content()
+    }
     
     var body: some View {
         ZStack() {
-            Color("Background")
+            theme.backgroundColor
                 .ignoresSafeArea(.all)
-            someView
+            content
         }
     }
 }

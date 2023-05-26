@@ -11,7 +11,7 @@ import SwiftUI
 struct ThemePickerView: View {
     @State var themeIndex: Int = 0
     @State var currentTheme: Theme = ThemeList.one.theme
-    let themeManager = ThemeManager()
+    @EnvironmentObject var themeManager: ThemeManager
     
     var body: some View {
         themePagePicker()
@@ -70,28 +70,20 @@ struct ThemePickerView: View {
             WPOTitle(currentTheme.name, color: currentTheme.textColor)
             OnboardingWeatherDisplayView(theme: $currentTheme)
                 .padding()
-            
             Spacer()
-            
             WPNavigationLink(label: "Select Theme", theme: currentTheme) {
                 EnableLocationView()
+                    .environmentObject(themeManager)
+                    .onAppear {
+                        currentTheme = ThemeList.allCases[themeIndex].theme
+                        themeManager.updateCurrentTheme(with: currentTheme)
+                        print("Choose Theme: \(currentTheme)")
+                    }
             }
-            
-//            WPButton("Select",
-//                     accent: currentTheme.weatherBackground,
-//                     textColor: currentTheme.textColor) {
-//                print("Select Theme \(currentTheme.name)")
-//                themeManager.updateCurrentTheme(with: currentTheme)
-//            }
             Spacer()
-            
-            
         }
-        
-        
-        
-        
     }
+    
 }
 
 struct ThemePickerView_Previews: PreviewProvider {

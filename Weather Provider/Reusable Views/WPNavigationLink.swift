@@ -12,24 +12,32 @@ struct WPNavigationLink<Destination: View>: View {
     let label: String
     let theme: Theme
     @ViewBuilder var destination: Destination
+    var action: () -> Void
     
-    init(label: String, theme: Theme = ThemeList.one.theme, @ViewBuilder destination: () -> Destination) {
+    init(label: String, theme: Theme = ThemeList.one.theme, @ViewBuilder destination: () -> Destination, action: @escaping () -> Void = {} ) {
         self.label = label
         self.destination = destination()
         self.theme = theme
+        self.action = action
     }
     
     var body: some View {
         NavigationLink(destination: destination) {
-            Text(label)
-                .fontWeight(.medium)
-                .foregroundColor(theme.textColor)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 225)
-                .background(theme.weatherBackground)
-                .cornerRadius(12)
+            navigationLabel()
         }
+        
+    }
+    
+    func navigationLabel() -> some View {
+        Text(label)
+            .fontWeight(.medium)
+            .foregroundColor(theme.textColor)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 225)
+            .background(theme.weatherBackground)
+            .cornerRadius(12)
+
     }
 }
 struct WPNavigationLink_Previews: PreviewProvider {

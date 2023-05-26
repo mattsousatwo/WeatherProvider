@@ -71,8 +71,10 @@ extension OnboardingViewModel {
 ////            WPButton("Get Started!") {  }
 //            WPText("Get Started")
 //        }
-        
-        WPNavigationLink(label: "Get Started!") { ThemePickerView()
+        let themeManager = ThemeManager()
+        return WPNavigationLink(label: "Get Started!") {
+            ThemePickerView()
+                .environmentObject(themeManager)
         }
     }
     

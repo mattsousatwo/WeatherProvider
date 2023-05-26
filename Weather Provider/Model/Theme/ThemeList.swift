@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// List of themes to choose from
-enum ThemeList {
+enum ThemeList: CaseIterable {
     case one
     case two
     case three
