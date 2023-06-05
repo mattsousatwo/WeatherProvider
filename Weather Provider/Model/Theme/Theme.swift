@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Object used to store theme information
-struct Theme {
+public struct Theme {
     
     let name: String 
     let textColor: Color

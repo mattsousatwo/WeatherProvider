@@ -10,20 +10,19 @@ import SwiftUI
 
 /// View Model for the WPLabel
 struct WPLabelViewModel: WPViewModel {
-    
     let title: String
     let text: String
     let imageName: String
     
-    func mainBody() -> some View {
-        viewStructure()
+    func mainBody(_ theme: Theme) -> some View {
+        viewStructure(theme)
     }
     
     /// Structure of the view
-    func viewStructure() -> some View {
+    func viewStructure(_ theme: Theme) -> some View {
         HStack {
-            icon()
-            textView()
+            icon(theme.textColor)
+            textView(theme.textColor)
         }
         
     }
@@ -34,22 +33,22 @@ struct WPLabelViewModel: WPViewModel {
 extension WPLabelViewModel {
     
     /// A text view with a bold title in the first line of the text view
-    private func textView() -> some View {
+    private func textView(_ color: Color) -> some View {
         Group {
             Text(title)
                 .fontWeight(.bold) +
             Text(": " + text)
                 .fontWeight(.light)
         }
-            .foregroundColor(Color("TextColor"))
+            .foregroundColor(color)
             .fontDesign(.rounded)
     }
     
     /// Icon for the label
-    private func icon() -> some View {
+    private func icon(_ color: Color) -> some View {
         return Image(systemName: imageName)
             .resizable()
-            .foregroundColor(Color("TextColor"))
+            .foregroundColor(color)
             .aspectRatio(contentMode: .fit)
             .frame(width: 25, height: 25)
             

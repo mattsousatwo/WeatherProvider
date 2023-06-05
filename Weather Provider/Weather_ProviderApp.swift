@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Weather_ProviderApp: App {
+    let themeManager = ThemeManager()
+    
     var body: some Scene {
         WindowGroup {
-            OnboardingView() 
+            OnboardingView()
+                .environmentObject(themeManager)
         }
     }
 }

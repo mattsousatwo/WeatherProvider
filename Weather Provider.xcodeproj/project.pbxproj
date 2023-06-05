@@ -21,6 +21,7 @@
 		6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */; };
 		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
 		603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E82A17242000328253 /* WPLabelViewModel.swift */; };
+		6072A2F12A2107350041483A /* FetchingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072A2F02A2107350041483A /* FetchingDataView.swift */; };
 		607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE52A1687E500910594 /* HomeViewModel.swift */; };
 		607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EE82A168DC400910594 /* SplashScreen.swift */; };
 		607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */; };
@@ -51,6 +52,7 @@
 		6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDayForecastResults.swift; sourceTree = "<group>"; };
 		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
 		603E20E82A17242000328253 /* WPLabelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabelViewModel.swift; sourceTree = "<group>"; };
+		6072A2F02A2107350041483A /* FetchingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingDataView.swift; sourceTree = "<group>"; };
 		607A5EE52A1687E500910594 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		607A5EE82A168DC400910594 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		607A5EEA2A168DFC00910594 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			path = WPLabel;
 			sourceTree = "<group>";
 		};
+		6072A2EF2A2106A70041483A /* Fetching Data Animation */ = {
+			isa = PBXGroup;
+			children = (
+				6072A2F02A2107350041483A /* FetchingDataView.swift */,
+			);
+			path = "Fetching Data Animation";
+			sourceTree = "<group>";
+		};
 		607A5EE72A168D2200910594 /* Splash Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		60D9E7D62A1025BA00037683 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				6072A2EF2A2106A70041483A /* Fetching Data Animation */,
 				60DE8E7D2A1C3997002BD9D8 /* Enable Current Location  */,
 				6029FAB82A1BAD5000D901B8 /* Onboarding Weather Display */,
 				6029FAA92A17FBC200D901B8 /* Theme Picker */,
@@ -336,6 +347,7 @@
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
 				6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */,
+				6072A2F12A2107350041483A /* FetchingDataView.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,

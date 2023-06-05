@@ -37,8 +37,9 @@ struct EnableLocationView: View {
                                            condition: weather.currentWeather.condition)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
-                                Background {
-                                    WPText("Get Started")
+                                Background(themeManager.currentTheme) {
+                                    FetchingDataView()
+                                        .environmentObject(themeManager)
                                 }
                             }
                             Spacer()

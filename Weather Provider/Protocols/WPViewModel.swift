@@ -14,8 +14,6 @@ public protocol WPViewModel {
     associatedtype StructureView: View
     
     /// Main View used to display the body of the view
-    func mainBody() -> MainBodyView
-    func viewStructure() -> StructureView
+    func mainBody(_ theme: Theme) -> MainBodyView
+    func viewStructure(_ theme: Theme) -> StructureView
 }
-
-

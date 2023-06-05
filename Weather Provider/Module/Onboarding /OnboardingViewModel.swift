@@ -11,13 +11,14 @@ import SwiftUI
 /// View model for the Onboarding View
 struct OnboardingViewModel: WPViewModel {
     
+    
+    
     /// Main body function for the Onbaording View - contains all of the views in the body of OnboardingView
-    func mainBody() -> some View  {
+    func mainBody(_ theme: Theme) -> some View  {
         NavigationStack {
-            viewStructure()
+            viewStructure(theme)
         }
     }
-    
 }
 
 // Text Views
@@ -40,24 +41,27 @@ extension OnboardingViewModel {
 extension OnboardingViewModel {
     
     /// Feature one label
-    func featureOneLabel() -> some View {
+    func featureOneLabel(_ theme: Theme) -> some View {
         WPLabel(title: "Accurate and Up-to-Date Forecasts",
                 text: "Our app uses the weather data to provide you with the most accurate and reliable forecasts, so you can plan your day with confidence.",
-                imageName: "sun.max.trianglebadge.exclamationmark")
+                imageName: "sun.max.trianglebadge.exclamationmark",
+                theme: theme)
     }
     
     /// Feature two label
-    func featureTwoLabel() -> some View {
+    func featureTwoLabel(_ theme: Theme) -> some View {
         WPLabel(title: "Easy to Use",
                 text: "With a user-friendly interface and intuitive design, our app makes it easy to navigate and access all of its amazing features.",
-                imageName: "sparkles")
+                imageName: "sparkles",
+                theme: theme)
     }
     
     /// Feature three label
-    func featureThreeLabel() -> some View {
+    func featureThreeLabel(_ theme: Theme) -> some View {
         WPLabel(title: "Customizable Settings",
                 text: "You can customize the app to suit your preferences and get the weather information that matters the most to you.",
-                imageName: "gear")
+                imageName: "gear",
+                theme: theme)
     }
 
 }
@@ -85,12 +89,12 @@ extension OnboardingViewModel {
 extension OnboardingViewModel {
     
     /// View containing all of the messages within the Onboarding View
-    internal func viewStructure() -> some View  {
-        return Background {
+    internal func viewStructure(_ theme: Theme) -> some View  {
+        return Background(theme) {
             VStack {
                 onboardingHeading()
                 Spacer()
-                onboardingFeaturesList()
+                onboardingFeaturesList(theme)
                 Spacer()
                 dismissOnboardingViewButton()
                 Spacer()
@@ -108,11 +112,11 @@ extension OnboardingViewModel {
     }
     
     /// View stack with a list of onboarding features
-    private func onboardingFeaturesList() -> some View {
+    private func onboardingFeaturesList(_ theme: Theme) -> some View {
         VStack(alignment: .leading) {
-            featureOneLabel()
-            featureTwoLabel()
-            featureThreeLabel()
+            featureOneLabel(theme)
+            featureTwoLabel(theme)
+            featureThreeLabel(theme)
         }
     }
 }

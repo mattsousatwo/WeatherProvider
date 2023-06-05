@@ -18,7 +18,7 @@ enum ThemeList: CaseIterable {
     var theme: Theme {
         switch self {
             case .one:
-                return Theme(name: "Modern",
+                return Theme(name: "Classic",
                              textColor: Color("TextColor"),
                              backgroundColor: Color("Background"),
                              weatherBackground: Color("WeatherBackground"),
