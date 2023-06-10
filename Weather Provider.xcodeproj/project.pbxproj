@@ -33,6 +33,8 @@
 		60CCB2BD2A30427300D6BE68 /* Degree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCB2BC2A30427300D6BE68 /* Degree.swift */; };
 		60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */; };
 		60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */; };
+		60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63C42A340B5400CC2F17 /* GuageRow.swift */; };
+		60EB63C72A340B6900CC2F17 /* GuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63C62A340B6900CC2F17 /* GuageView.swift */; };
 		60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F272892A0C998E0025711F /* Weather_ProviderApp.swift */; };
 		60F2728E2A0C998F0025711F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F2728D2A0C998F0025711F /* Assets.xcassets */; };
 		60F272912A0C998F0025711F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F272902A0C998F0025711F /* Preview Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		60CCB2BC2A30427300D6BE68 /* Degree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degree.swift; sourceTree = "<group>"; };
 		60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationView.swift; sourceTree = "<group>"; };
+		60EB63C42A340B5400CC2F17 /* GuageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuageRow.swift; sourceTree = "<group>"; };
+		60EB63C62A340B6900CC2F17 /* GuageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuageView.swift; sourceTree = "<group>"; };
 		60F272862A0C998E0025711F /* Weather Provider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Provider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F272892A0C998E0025711F /* Weather_ProviderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_ProviderApp.swift; sourceTree = "<group>"; };
 		60F2728D2A0C998F0025711F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		60248C552A153B2E008470E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				60EB63C32A340B3A00CC2F17 /* Gauge Row */,
 				60248C562A153B3D008470E9 /* HomeView.swift */,
 				607A5EE52A1687E500910594 /* HomeViewModel.swift */,
 			);
@@ -198,6 +203,15 @@
 				60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */,
 			);
 			path = "Enable Current Location ";
+			sourceTree = "<group>";
+		};
+		60EB63C32A340B3A00CC2F17 /* Gauge Row */ = {
+			isa = PBXGroup;
+			children = (
+				60EB63C42A340B5400CC2F17 /* GuageRow.swift */,
+				60EB63C62A340B6900CC2F17 /* GuageView.swift */,
+			);
+			path = "Gauge Row";
 			sourceTree = "<group>";
 		};
 		60F2727D2A0C998E0025711F = {
@@ -344,6 +358,7 @@
 				6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */,
 				6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */,
 				6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */,
+				60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */,
 				6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */,
@@ -358,6 +373,7 @@
 				6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */,
 				60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */,
 				60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */,
+				60EB63C72A340B6900CC2F17 /* GuageView.swift in Sources */,
 				60248C5B2A15B4F2008470E9 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
