@@ -47,11 +47,12 @@ public class WeatherNetwork: ObservableObject {
             print(weatherInfo.location.name)
             print(weatherInfo.currentWeather.temperatureFahrenheit)
             
+            print("Fetched Data: \(data.count), \(decodedString)")
             return weatherInfo
         } catch {
             print("Error decoding JSON: \(error)")
+            print("Fetched Data: \(data.count), \(decodedString)")
         }
-        print("Fetched Data: \(data.count), \(decodedString)")
         return nil 
     }
     

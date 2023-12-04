@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - TenDayForecastResults**
 //struct TenDayForecastResults: Codable {
@@ -66,11 +67,98 @@ struct Condition: Codable {
     var icon: String
     var code: Int
 
+    func image() -> Image {
+        
+        var conditionImage: ConditionImage = .sun
+    
+        switch code {
+            case 1000:
+                conditionImage = .sun
+            case 1003:
+                conditionImage = .partlyCloudy
+            case 1006, 1009:
+                conditionImage = .cloudy
+            case 1030, 1035, 1147:
+                conditionImage = .fog
+            case 1063, 1150, 1153, 1180, 1240:
+                conditionImage = .cloudyDrizzle
+            case 1066, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255:
+                conditionImage = .cloudySnow
+            case 1069, 1204, 1207, 1249, 1252:
+                conditionImage = .cloudySleet
+            case 1072, 1168, 1171, 1198, 1201, 1237:
+                conditionImage = .cloudyHail
+            case 1114:
+                conditionImage = .windySnow
+            case 1183, 1189, 1195, 1243:
+                conditionImage = .cloudyRain
+            case 1186, 1192, 1246:
+                conditionImage = .cloudyHeavyRain
+            case 1087:
+                conditionImage = .cloudySnowThunder
+            default:
+                conditionImage = .sun
+        }
+
+        return Image(systemName: conditionImage.image)
+
+    }
+    
     enum CodingKeys: String, CodingKey {
         case text = "text"
         case icon = "icon"
         case code = "code"
     }
+    
+    enum ConditionImage: Int,  CaseIterable {
+        case sun = 000001
+        case partlyCloudy = 000002
+        case cloudy = 000003
+        case fog = 000004
+        case cloudyDrizzle = 000005
+        case cloudySnow = 000006
+        case cloudySleet = 000007
+        case cloudyHail = 000008
+        case windySnow = 000009
+        case cloudyRain = 000010
+        case cloudyHeavyRain = 000011
+        case cloudySnowThunder = 000012
+        
+        var image: String {
+            switch self {
+                case .sun:
+                    return "sun.max.fill"
+                case .partlyCloudy:
+                    return "cloud.sun.fill"
+                case .cloudy:
+                    return "cloud.fill"
+                case .fog:
+                    return "cloud.fog.fill"
+                case .cloudyDrizzle:
+                    return "cloud.drizzle.fill"
+                case .cloudySnow:
+                    return "cloud.snow.fill"
+                case .cloudySleet:
+                    return "cloud.sleet.fill"
+                case .cloudyHail:
+                    return "cloud.hail.fill"
+                case .windySnow:
+                    return "wind.snow"
+                case .cloudyRain:
+                    return "cloud.rain.fill"
+                case .cloudyHeavyRain:
+                    return "cloud.heavyrain.fill"
+                case .cloudySnowThunder:
+                    return "cloud.bolt.rain.fill"
+            }
+        }
+        
+        
+        
+        
+        
+    }
+    
 }
 
 enum ConditionDescription: String, Codable {
@@ -98,7 +186,11 @@ struct Forecast: Codable, Equatable {
 }
 
 // MARK: - Forecastday
-struct Forecastday: Codable, Equatable {
+struct Forecastday: Codable, Equatable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(date)
+    }
+    
     static func == (lhs: Forecastday, rhs: Forecastday) -> Bool {
         return lhs.date == rhs.date &&
             lhs.dateEpoch == rhs.dateEpoch
@@ -120,9 +212,8 @@ struct Forecastday: Codable, Equatable {
 
 // MARK: - Astro
 struct Astro: Codable {
-    var sunrise, sunset, moonrise, moonset: String
-    var moonPhase, moonIllumination: String
-    var isMoonUp, isSunUp: Int
+    var sunrise, sunset, moonrise, moonset, moonPhase: String
+    var isMoonUp, isSunUp, moonIllumination: Int
 
     enum CodingKeys: String, CodingKey {
         case sunrise, sunset, moonrise, moonset
@@ -354,77 +445,77 @@ struct AirQuality: Codable {
     }
 }
 
-struct HourlyForecast: Codable {
-    let timeEpoch: Int
-    let time: String
-    let temperatureCelsius: Double
-    let temperatureFahrenheit: Double
-    let isDay: Int
-    let condition: WeatherCondition
-    let windMph: Double
-    let windKph: Double
-    let windDegree: Int
-    let windDirection: String
-    let pressureMb: Double
-    let pressureIn: Double
-    let precipitationMm: Double
-    let precipitationIn: Double
-    let humidity: Int
-    let cloudCover: Int
-    let feelsLikeCelsius: Double
-    let feelsLikeFahrenheit: Double
-    let windChillCelsius: Double
-    let windChillFahrenheit: Double
-    let heatIndexCelsius: Double
-    let heatIndexFahrenheit: Double
-    let dewPointCelsius: Double
-    let dewPointFahrenheit: Double
-    let willItRain: Int
-    let chanceOfRain: Int
-    let willItSnow: Int
-    let chanceOfSnow: Int
-    let visibilityKm: Double
-    let visibilityMiles: Double
-    let gustMph: Double
-    let gustKph: Double
-    let uvIndex: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case timeEpoch = "time_epoch"
-        case time
-        case temperatureCelsius = "temp_c"
-        case temperatureFahrenheit = "temp_f"
-        case isDay = "is_day"
-        case condition
-        case windMph = "wind_mph"
-        case windKph = "wind_kph"
-        case windDegree = "wind_degree"
-        case windDirection = "wind_dir"
-        case pressureMb = "pressure_mb"
-        case pressureIn = "pressure_in"
-        case precipitationMm = "precip_mm"
-        case precipitationIn = "precip_in"
-        case humidity
-        case cloudCover = "cloud"
-        case feelsLikeCelsius = "feelslike_c"
-        case feelsLikeFahrenheit = "feelslike_f"
-        case windChillCelsius = "windchill_c"
-        case windChillFahrenheit = "windchill_f"
-        case heatIndexCelsius = "heatindex_c"
-        case heatIndexFahrenheit = "heatindex_f"
-        case dewPointCelsius = "dewpoint_c"
-        case dewPointFahrenheit = "dewpoint_f"
-        case willItRain = "will_it_rain"
-        case chanceOfRain = "chance_of_rain"
-        case willItSnow = "will_it_snow"
-        case chanceOfSnow = "chance_of_snow"
-        case visibilityKm = "vis_km"
-        case visibilityMiles = "vis_miles"
-        case gustMph = "gust_mph"
-        case gustKph = "gust_kph"
-        case uvIndex = "uv"
-    }
-}
+//struct HourlyForecast: Codable {
+//    let timeEpoch: Int
+//    let time: String
+//    let temperatureCelsius: Double
+//    let temperatureFahrenheit: Double
+//    let isDay: Int
+//    let condition: WeatherCondition
+//    let windMph: Double
+//    let windKph: Double
+//    let windDegree: Int
+//    let windDirection: String
+//    let pressureMb: Double
+//    let pressureIn: Double
+//    let precipitationMm: Double
+//    let precipitationIn: Double
+//    let humidity: Int
+//    let cloudCover: Int
+//    let feelsLikeCelsius: Double
+//    let feelsLikeFahrenheit: Double
+//    let windChillCelsius: Double
+//    let windChillFahrenheit: Double
+//    let heatIndexCelsius: Double
+//    let heatIndexFahrenheit: Double
+//    let dewPointCelsius: Double
+//    let dewPointFahrenheit: Double
+//    let willItRain: Int
+//    let chanceOfRain: Int
+//    let willItSnow: Int
+//    let chanceOfSnow: Int
+//    let visibilityKm: Double
+//    let visibilityMiles: Double
+//    let gustMph: Double
+//    let gustKph: Double
+//    let uvIndex: Double
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case timeEpoch = "time_epoch"
+//        case time
+//        case temperatureCelsius = "temp_c"
+//        case temperatureFahrenheit = "temp_f"
+//        case isDay = "is_day"
+//        case condition
+//        case windMph = "wind_mph"
+//        case windKph = "wind_kph"
+//        case windDegree = "wind_degree"
+//        case windDirection = "wind_dir"
+//        case pressureMb = "pressure_mb"
+//        case pressureIn = "pressure_in"
+//        case precipitationMm = "precip_mm"
+//        case precipitationIn = "precip_in"
+//        case humidity
+//        case cloudCover = "cloud"
+//        case feelsLikeCelsius = "feelslike_c"
+//        case feelsLikeFahrenheit = "feelslike_f"
+//        case windChillCelsius = "windchill_c"
+//        case windChillFahrenheit = "windchill_f"
+//        case heatIndexCelsius = "heatindex_c"
+//        case heatIndexFahrenheit = "heatindex_f"
+//        case dewPointCelsius = "dewpoint_c"
+//        case dewPointFahrenheit = "dewpoint_f"
+//        case willItRain = "will_it_rain"
+//        case chanceOfRain = "chance_of_rain"
+//        case willItSnow = "will_it_snow"
+//        case chanceOfSnow = "chance_of_snow"
+//        case visibilityKm = "vis_km"
+//        case visibilityMiles = "vis_miles"
+//        case gustMph = "gust_mph"
+//        case gustKph = "gust_kph"
+//        case uvIndex = "uv"
+//    }
+//}
 
 struct DayForecast: Codable {
     let date: String

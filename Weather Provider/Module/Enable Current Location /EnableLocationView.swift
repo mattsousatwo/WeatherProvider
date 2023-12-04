@@ -30,11 +30,12 @@ struct EnableLocationView: View {
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
-                            weatherDisplay(location: weather.location.name,
-                                           time: weather.location.localtime,
-                                           temp: weather.currentWeather.temperatureFahrenheit,
-                                           feelsLike: weather.currentWeather.feelsLikeFahrenheit,
-                                           condition: weather.currentWeather.condition)
+//                            weatherDisplay(location: weather.location.name,
+//                                           time: weather.location.localtime,
+//                                           temp: weather.currentWeather.temperatureFahrenheit,
+//                                           feelsLike: weather.currentWeather.feelsLikeFahrenheit,
+//                                           condition: weather.currentWeather.condition)
+                            weatherDisplay(weather)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
                                 Background(themeManager.currentTheme) {
@@ -120,6 +121,36 @@ struct EnableLocationView: View {
         
     }
 
+    func weatherDisplay(_ weather: WeatherInfo) -> some View {
+        return VStack {
+            WPOTitle(weather.location.name, color: themeManager.currentTheme.textColor)
+            Text(weather.location.localtime)
+                .fontDesign(.rounded)
+            //                .foregroundColor(theme.textColor)
+            WPText("\(weather.currentWeather.condition.text)", color: themeManager.currentTheme.textColor)
+                .padding(.bottom, 2)
+            
+            if let currentDay = weather.forecast.forecastday.first?.day {
+                currentDay.condition.image()
+                    .resizable()
+                    .renderingMode(.original)
+                    .foregroundColor(.white)
+                    .frame(width: 25, height: 25)
+                    .padding(.vertical, 5)
+            }
+
+            Text("\(Degree(weather.currentWeather.temperatureFahrenheit).asString)")
+                .fontDesign(.rounded)
+                .foregroundColor(themeManager.currentTheme.textColor)
+                .padding(.vertical, 2)
+            
+            WPText("Feels like: \(Degree(weather.currentWeather.feelsLikeFahrenheit).asString)", color: themeManager.currentTheme.textColor)
+        }
+        .padding()
+        .background(themeManager.currentTheme.weatherBackground)
+        .cornerRadius(12)
+        
+    }
 }
 
 struct EnableLocationView_Previews: PreviewProvider {

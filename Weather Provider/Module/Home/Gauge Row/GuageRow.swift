@@ -30,8 +30,6 @@ struct GuageRow: View {
     }
     
     
-    
-    
     var body: some View {
         HStack {
             WPText("Monday")

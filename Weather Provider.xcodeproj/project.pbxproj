@@ -17,6 +17,7 @@
 		6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FABD2A1BAED800D901B8 /* ThemeManager.swift */; };
 		6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC02A1BAF3300D901B8 /* Theme.swift */; };
 		6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */; };
+		602EF3E92A367053008D8D36 /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602EF3E82A367053008D8D36 /* WeatherCondition.swift */; };
 		6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA882A1D223E0003377B /* WeatherNetwork.swift */; };
 		6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */; };
 		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
@@ -35,6 +36,9 @@
 		60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */; };
 		60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63C42A340B5400CC2F17 /* GuageRow.swift */; };
 		60EB63C72A340B6900CC2F17 /* GuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63C62A340B6900CC2F17 /* GuageView.swift */; };
+		60EB63CB2A34350400CC2F17 /* TemperatureCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63CA2A34350400CC2F17 /* TemperatureCapsule.swift */; };
+		60EB63CD2A34352300CC2F17 /* TemperatureBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63CC2A34352300CC2F17 /* TemperatureBar.swift */; };
+		60EB63D32A35834E00CC2F17 /* TenDayTemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB63D22A35834E00CC2F17 /* TenDayTemperatureView.swift */; };
 		60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F272892A0C998E0025711F /* Weather_ProviderApp.swift */; };
 		60F2728E2A0C998F0025711F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F2728D2A0C998F0025711F /* Assets.xcassets */; };
 		60F272912A0C998F0025711F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F272902A0C998F0025711F /* Preview Assets.xcassets */; };
@@ -51,6 +55,7 @@
 		6029FABD2A1BAED800D901B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		6029FAC02A1BAF3300D901B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
+		602EF3E82A367053008D8D36 /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
 		6035AA882A1D223E0003377B /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
 		6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDayForecastResults.swift; sourceTree = "<group>"; };
 		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 		60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationView.swift; sourceTree = "<group>"; };
 		60EB63C42A340B5400CC2F17 /* GuageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuageRow.swift; sourceTree = "<group>"; };
 		60EB63C62A340B6900CC2F17 /* GuageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuageView.swift; sourceTree = "<group>"; };
+		60EB63CA2A34350400CC2F17 /* TemperatureCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureCapsule.swift; sourceTree = "<group>"; };
+		60EB63CC2A34352300CC2F17 /* TemperatureBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureBar.swift; sourceTree = "<group>"; };
+		60EB63D22A35834E00CC2F17 /* TenDayTemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDayTemperatureView.swift; sourceTree = "<group>"; };
 		60F272862A0C998E0025711F /* Weather Provider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Provider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F272892A0C998E0025711F /* Weather_ProviderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_ProviderApp.swift; sourceTree = "<group>"; };
 		60F2728D2A0C998F0025711F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		60248C552A153B2E008470E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				60EB63C92A3434DB00CC2F17 /* Temperature Bar */,
 				60EB63C32A340B3A00CC2F17 /* Gauge Row */,
 				60248C562A153B3D008470E9 /* HomeView.swift */,
 				607A5EE52A1687E500910594 /* HomeViewModel.swift */,
@@ -128,6 +137,22 @@
 				6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		602EF3E62A36702D008D8D36 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				602EF3E72A36703B008D8D36 /* Weather Conditions */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		602EF3E72A36703B008D8D36 /* Weather Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				602EF3E82A367053008D8D36 /* WeatherCondition.swift */,
+			);
+			path = "Weather Conditions";
 			sourceTree = "<group>";
 		};
 		6035AA872A1D22200003377B /* Weather Network */ = {
@@ -214,6 +239,16 @@
 			path = "Gauge Row";
 			sourceTree = "<group>";
 		};
+		60EB63C92A3434DB00CC2F17 /* Temperature Bar */ = {
+			isa = PBXGroup;
+			children = (
+				60EB63CA2A34350400CC2F17 /* TemperatureCapsule.swift */,
+				60EB63CC2A34352300CC2F17 /* TemperatureBar.swift */,
+				60EB63D22A35834E00CC2F17 /* TenDayTemperatureView.swift */,
+			);
+			path = "Temperature Bar";
+			sourceTree = "<group>";
+		};
 		60F2727D2A0C998E0025711F = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +268,7 @@
 		60F272882A0C998E0025711F /* Weather Provider */ = {
 			isa = PBXGroup;
 			children = (
+				602EF3E62A36702D008D8D36 /* Data */,
 				607A5EEC2A168E4600910594 /* Protocols */,
 				60D9E7D62A1025BA00037683 /* Module */,
 				60F272982A0C9A1D0025711F /* Reusable Views */,
@@ -350,12 +386,16 @@
 				60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */,
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
+				60EB63D32A35834E00CC2F17 /* TenDayTemperatureView.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
 				6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */,
+				60EB63CB2A34350400CC2F17 /* TemperatureCapsule.swift in Sources */,
 				603E20E62A17203500328253 /* WPLabel.swift in Sources */,
 				607A5EF52A16B15F00910594 /* WPText.swift in Sources */,
+				602EF3E92A367053008D8D36 /* WeatherCondition.swift in Sources */,
 				6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */,
 				6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */,
+				60EB63CD2A34352300CC2F17 /* TemperatureBar.swift in Sources */,
 				6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */,
 				6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */,
 				60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */,
