@@ -14,7 +14,7 @@ struct WPLabel: View {
     let title: String
     let text: String
     let imageName: String
-    let viewModel: WPLabelViewModel
+    private let viewModel: WPLabelViewModel
     init(title: String, text: String, imageName: String, theme: Theme) {
         self.title = title
         self.text = text
