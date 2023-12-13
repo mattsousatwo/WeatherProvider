@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 /// View model for the Onboarding View
+@available(iOS 17.0, *)
 struct OnboardingViewModel: WPViewModel {
     
     
@@ -22,22 +23,24 @@ struct OnboardingViewModel: WPViewModel {
 }
 
 // Text Views
+@available(iOS 17.0, *)
 extension OnboardingViewModel {
     
     /// Text view with a heading for the onboarding
-    private func welcomeHeadingText() -> some View {
-        WPOTitle("Welcome to our Weather App!")
+    private func welcomeHeadingText(_ theme: Theme) -> some View {
+        WPOTitle("Welcome to our Weather App!", color: theme.textColor)
     }
     
     /// Text view with a heading for the onboarding
-    private func welcomeMessageText() -> some View {
-        WPText("Get accurate and up-to-date weather forecasts with our app. Plan your day with confidence. Our user-friendly app guides you through all its amazing features.")
+    private func welcomeMessageText(_ theme: Theme) -> some View {
+        WPText("Get accurate and up-to-date weather forecasts with our app. Plan your day with confidence. Our user-friendly app guides you through all its amazing features.", color: theme.textColor)
             .multilineTextAlignment(.center)
     }
     
 }
 
 // Labels
+@available(iOS 17.0, *)
 extension OnboardingViewModel {
     
     /// Feature one label
@@ -67,18 +70,22 @@ extension OnboardingViewModel {
 }
 
 // Buttons
+@available(iOS 17.0, *)
 extension OnboardingViewModel {
     
     /// Button used to dismiss the Onboarding View - should trigger an event that will save the user viewing the onboarding view so it will not be presented again
-    func dismissOnboardingViewButton() -> some View {
+    func dismissOnboardingViewButton(_ theme: Theme) -> some View {
 //        NavigationLink(destination: ThemePickerView()) {
 ////            WPButton("Get Started!") {  }
 //            WPText("Get Started")
 //        }
-        let themeManager = ThemeManager()
-        return WPNavigationLink(label: "Get Started!") {
+//        let themeManager = ThemeManager()
+//        let userDelegate = UserDelegate()
+        return WPNavigationLink(label: "Get Started!",
+                                theme: theme) {
             ThemePickerView()
-                .environmentObject(themeManager)
+//                .environmentObject(themeManager)
+//                .environmentObject(userDelegate)
         }
     }
     
@@ -86,17 +93,18 @@ extension OnboardingViewModel {
 
 
 // Structure
+@available(iOS 17.0, *)
 extension OnboardingViewModel {
     
     /// View containing all of the messages within the Onboarding View
     internal func viewStructure(_ theme: Theme) -> some View  {
         return Background(theme) {
             VStack {
-                onboardingHeading()
+                onboardingHeading(theme)
                 Spacer()
                 onboardingFeaturesList(theme)
                 Spacer()
-                dismissOnboardingViewButton()
+                dismissOnboardingViewButton(theme)
                 Spacer()
             }
             .padding()
@@ -104,10 +112,10 @@ extension OnboardingViewModel {
     }
     
     /// View stack with all of the onboarding heading messages
-    private func onboardingHeading() -> some View {
+    private func onboardingHeading(_ theme: Theme) -> some View {
         return VStack {
-            welcomeHeadingText()
-            welcomeMessageText()
+            welcomeHeadingText(theme)
+            welcomeMessageText(theme)
         }
     }
     
@@ -118,12 +126,5 @@ extension OnboardingViewModel {
             featureTwoLabel(theme)
             featureThreeLabel(theme)
         }
-    }
-}
-
-
-struct OnboardingViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
     }
 }

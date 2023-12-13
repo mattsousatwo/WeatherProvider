@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Loading Class is used to handle the common methods when loading data through the FileManager 
+/// Loading Class is used to handle the common methods when loading data through the FileManager
 public class LoadingClass {
     
     let decoder = JSONDecoder()
@@ -32,7 +32,7 @@ extension LoadingClass {
         if directories.count > 0 {
             let dir = directories[0]
             filePath = dir.description.appendingFormat("/", "\(directoryName.rawValue).json")
-            print("Local path for \(directoryName) - \(filePath)/n")
+            print("Local path for \(directoryName.rawValue) - \(filePath)\n")
         } else {
             print("Could not find path for \(directoryName.rawValue)")
             return false

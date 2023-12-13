@@ -20,5 +20,223 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "loadUserDelegateFile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de1774555e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de177455526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de177455564"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7159EC96-5048-4CD9-93E8-3676EDCD39CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "loadUserDelegateFile()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB59D296-090A-44FB-9A4F-5ED6AC9DC47D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "loadUserDelegateFile()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Module/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "HomeView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 8380cd13f9e71c86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Weather_Provider.HomeView.viewState : Weather_Provider.ViewState"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 4fe29a00b09401f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.HomeView.viewState.getter : Weather_Provider.ViewState"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 8677e0ae4a22dc1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.HomeView.viewState.setter : Weather_Provider.ViewState"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 3042d64bf29dea6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.HomeView.viewState.modify : Weather_Provider.ViewState"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 349989f273eb5e75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.HomeView.viewState.modify : Weather_Provider.ViewState with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - 4594f5de7bc16ed3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_Provider.HomeView.$viewState.getter : SwiftUI.Binding&lt;Weather_Provider.ViewState&gt;"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "253A4F1F-CF5A-4E1A-A66B-E5A574939BA4 - ab747db8c5189d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 4 of Weather_Provider.HomeView.init(themeManager: SwiftUI.EnvironmentObject&lt;Weather_Provider.ThemeManager&gt;, userDelegate: SwiftUI.EnvironmentObject&lt;Weather_Provider.UserDelegate&gt;, locationManager: @autoclosure () -&gt; Weather_Provider.LocationManager, weatherInfo: Weather_Provider.WeatherInfo, viewState: Weather_Provider.ViewState) -&gt; Weather_Provider.HomeView"
+                  moduleName = "Weather Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

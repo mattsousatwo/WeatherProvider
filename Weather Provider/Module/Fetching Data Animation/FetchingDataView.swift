@@ -8,8 +8,11 @@
 import SwiftUI
 
 /// View to display a loading animation between the Home and Onboarding Views 
+@available(iOS 17.0, *)
 struct FetchingDataView: View {
     @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var userDelegate: UserDelegate
+    
     @ObservedObject var weatherNetwork = WeatherNetwork()
     @StateObject var locationManager = LocationManager()
     
@@ -23,22 +26,24 @@ struct FetchingDataView: View {
                     WPNavigationLink(label: "Go to Home", theme: themeManager.currentTheme) {
                         HomeView(weatherInfo: weatherInfo)
                             .environmentObject(themeManager)
+                            .environmentObject(userDelegate)
                     }
                 }
                 Spacer()
             }
         }
         .onAppear {
-            let longAndLat = "\(locationManager.locationManager.location?.coordinate.latitude.description ?? "Error Loading"),\(locationManager.locationManager.location?.coordinate.longitude.description ?? "Error Loading")"
             print("EnableLocation - Theme - \(themeManager.currentTheme)")
-            Task {
-                weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: longAndLat)
+            Task(priority: .background) {
+                print("FetchingDataView")
+                weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.locationManager.longituteAndLatitude)
             }
         }
         
     }
 }
 
+@available(iOS 17.0, *)
 struct FetchingDataView_Previews: PreviewProvider {
     static var previews: some View {
         FetchingDataView()

@@ -9,13 +9,11 @@ import SwiftUI
 
 /// Object used to store theme information
 public struct Theme {
-    
-    let name: String 
+
+    let name: String
     let textColor: Color
     let backgroundColor: Color
     let weatherBackground: Color 
     let accentColor: Color
-    
-    
     
 }

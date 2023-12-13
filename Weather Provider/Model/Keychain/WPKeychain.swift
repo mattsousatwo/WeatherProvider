@@ -8,6 +8,7 @@
 import Foundation
 
 enum WPKeychain: String {
+    case appendingPathExtension = "json"
     case userDelegateFile = "WP_USER_DELEGATE_FILE"
     
 }

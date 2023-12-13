@@ -8,10 +8,12 @@
 import SwiftUI
 
 /// View used to select the users desired theme
+@available(iOS 17.0, *)
 struct ThemePickerView: View {
     @State var themeIndex: Int = 0
     @State var currentTheme: Theme = ThemeList.one.theme
     @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var userDelegate: UserDelegate
     
     var body: some View {
         themePagePicker()
@@ -74,9 +76,11 @@ struct ThemePickerView: View {
             WPNavigationLink(label: "Select Theme", theme: currentTheme) {
                 EnableLocationView()
                     .environmentObject(themeManager)
+                    .environmentObject(userDelegate)
                     .onAppear {
                         currentTheme = ThemeList.allCases[themeIndex].theme
                         themeManager.updateCurrentTheme(with: currentTheme)
+                        userDelegate.save(theme: currentTheme)
                         print("Choose Theme: \(currentTheme)")
                     }
             }
@@ -86,6 +90,7 @@ struct ThemePickerView: View {
     
 }
 
+@available(iOS 17.0, *)
 struct ThemePickerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

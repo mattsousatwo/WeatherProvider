@@ -9,9 +9,12 @@ import SwiftUI
 import CoreLocationUI
 
 /// Durring the onboarding process this view is shown to allow the user to easily enable the app to access the users current location
+@available(iOS 17.0, *)
 struct EnableLocationView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    @StateObject var locationManager = LocationManager() 
+    @EnvironmentObject var userDelegate: UserDelegate
+    
+    @StateObject var locationManager = LocationManager()
     @ObservedObject var weatherNetwork = WeatherNetwork()
     
     @State private var fetchTenDayForecast: Bool = false
@@ -30,18 +33,19 @@ struct EnableLocationView: View {
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
-//                            weatherDisplay(location: weather.location.name,
-//                                           time: weather.location.localtime,
-//                                           temp: weather.currentWeather.temperatureFahrenheit,
-//                                           feelsLike: weather.currentWeather.feelsLikeFahrenheit,
-//                                           condition: weather.currentWeather.condition)
                             weatherDisplay(weather)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
-                                Background(themeManager.currentTheme) {
-                                    FetchingDataView()
+//                                Background(themeManager.currentTheme) {
+//                                    FetchingDataView()
+                                
+                                
+                                // MARK: - ISSUE WPTL-22
+                                // Will somehow trigger a segue to SplashScreen
+                                HomeView(weatherInfo: weather)
                                         .environmentObject(themeManager)
-                                }
+                                        .environmentObject(userDelegate)
+////                                }
                             }
                             Spacer()
                         } else {
@@ -50,10 +54,10 @@ struct EnableLocationView: View {
                                 Spacer()
                             }
                             .onAppear {
-                                let longAndLat = "\(locationManager.locationManager.location?.coordinate.latitude.description ?? "Error Loading"),\(locationManager.locationManager.location?.coordinate.longitude.description ?? "Error Loading")"
                                 print("EnableLocation - Theme - \(themeManager.currentTheme)")
                                 Task {
-                                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: longAndLat)
+                                    print("EnableLocationView")
+                                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.locationManager.longituteAndLatitude)
                                 }
                             }
                         }

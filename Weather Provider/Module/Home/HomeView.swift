@@ -6,36 +6,78 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 /// Home view is used to display all the main weather information
+@available(iOS 17.0, *)
 struct HomeView: View {
     
     @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var userDelegate: UserDelegate
+    
     @StateObject var locationManager = LocationManager()
     var weatherInfo: WeatherInfo
 
+    @State var viewState: ViewState = .loading
+    
+    
     /// View Model for the Home Module
     let viewModel = HomeViewModel()
     
     var body: some View {
         
-        switch locationManager.locationManager.authorizationStatus {
-            case .authorizedAlways, .authorizedWhenInUse:
-                viewStructure()
-            case .restricted, .denied, .notDetermined:
-                ProgressView()
-            default:
-                ProgressView()
+        Background(themeManager.currentTheme) {
+            switch viewState {
+                case .loading:
+                    ProgressView()
+                case .failure(let reason):
+                    Text("Failure - \(reason)")
+                case .success:
+                    viewStructure()
+            }
         }
+        .onAppear {
+            print("Home - Loading")
+            switch locationManager.locationManager.authorizationStatus {
+                case .denied, .restricted, .notDetermined:
+                    viewState = .failure(reason: "Authorization Status - \(locationManager.locationManager.authorizationStatus.name)")
+                    print("Home - Failure - \(viewState)")
+                case .authorized, .authorizedAlways, .authorizedWhenInUse:
+                    viewState = .success
+                    print("Home - Success - \(viewState)")
+                default:
+                    viewState = .failure(reason: "Unknown Reason")
+                    print("Home - Default Failure - \(viewState)")
+            }
+            
+//            if locationManager.locationManager.authorizationStatus == .authorizedWhenInUse ||
+//                locationManager.locationManager.authorizationStatus == .authorizedAlways {
+//                
+//                viewState = .failure(reason: "Authorization Status - \(locationManager.locationManager.authorizationStatus.name)")
+//                
+//            } else {
+//                viewState = .success
+//            }
+        }
+        
+//        switch locationManager.locationManager.authorizationStatus {
+//            case .authorizedAlways, .authorizedWhenInUse:
+//                viewStructure()
+//            case .restricted, .denied, .notDetermined:
+//                ProgressView()
+//            default:
+//                ProgressView()
+//        }
     }
 
 }
 
 
+@available(iOS 17.0, *)
 extension HomeView {
     
     func viewStructure() -> some View {
-        Background(themeManager.currentTheme) {
+        
             ScrollView(.vertical) {
                 VStack {
                     mainWeatherDisplay()
@@ -44,7 +86,12 @@ extension HomeView {
                     Spacer()
                 }
             }
+        
+        .onAppear {
+            userDelegate.userDidCompleteOnboarding()
         }
+        
+        
     }
     
     func mainWeatherDisplay() -> some View {
@@ -122,3 +169,25 @@ extension HomeView {
 //        
 //    }
 //}
+
+
+extension CLAuthorizationStatus {
+    var name: String {
+        switch self {
+            case .notDetermined:
+                return "notDetermined"
+            case .restricted:
+                return "restricted"
+            case .denied:
+                return "denied"
+            case .authorizedAlways:
+                return "authorizedAlways"
+            case .authorizedWhenInUse:
+                return "authorizedWhenInUse"
+            case .authorized:
+                return "authorized"
+            default:
+                return "Unknown"
+        }
+    }
+}

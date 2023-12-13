@@ -47,6 +47,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 authorizationStatus = .notDetermined
                 manager.requestWhenInUseAuthorization()
                 break
+            case .authorizedAlways:
+                authorizationStatus = .authorizedAlways
+                locationManager.requestLocation()
             default:
                 break
         }
@@ -54,5 +57,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")
+    }
+
+}
+
+
+
+extension CLLocationManager {
+    /// Returns a string with the users longitude and latitude
+    var longituteAndLatitude: String {
+        let lat = "\(location?.coordinate.latitude.description ?? "Error Loading")"
+        let long = "\(location?.coordinate.longitude.description ?? "Error Loading")"
+        return lat + "," + long
     }
 }

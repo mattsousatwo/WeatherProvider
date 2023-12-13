@@ -26,6 +26,13 @@ struct WPButton: View {
         self.action = action
     }
     
+    public init(_ text: String, theme: Theme, action: @escaping () -> Void) {
+        self.text = text
+        self.accent = theme.accentColor
+        self.textColor = theme.textColor
+        self.action = action
+    }
+    
     var body: some View {
         Button {
             action()
