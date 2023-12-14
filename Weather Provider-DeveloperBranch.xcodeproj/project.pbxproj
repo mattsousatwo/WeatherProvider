@@ -38,7 +38,7 @@
 		607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607A5EF62A16B8FD00910594 /* WPButton.swift */; };
 		608FFF672B28E60600FB1296 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF662B28E60600FB1296 /* ViewState.swift */; };
 		608FFF692B294E9D00FB1296 /* WeatherSplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF682B294E9D00FB1296 /* WeatherSplashAnimation.swift */; };
-		60C26A382B2777960031AAAF /* MainBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C26A372B2777960031AAAF /* MainBody.swift */; };
+		608FFF6C2B2A3A8100FB1296 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */; };
 		60CCB2BD2A30427300D6BE68 /* Degree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCB2BC2A30427300D6BE68 /* Degree.swift */; };
 		60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */; };
 		60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */; };
@@ -84,7 +84,7 @@
 		607A5EF62A16B8FD00910594 /* WPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPButton.swift; sourceTree = "<group>"; };
 		608FFF662B28E60600FB1296 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		608FFF682B294E9D00FB1296 /* WeatherSplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSplashAnimation.swift; sourceTree = "<group>"; };
-		60C26A372B2777960031AAAF /* MainBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBody.swift; sourceTree = "<group>"; };
+		608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		60CCB2BC2A30427300D6BE68 /* Degree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degree.swift; sourceTree = "<group>"; };
 		60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationView.swift; sourceTree = "<group>"; };
@@ -244,18 +244,18 @@
 			path = "Onboarding ";
 			sourceTree = "<group>";
 		};
-		60C26A362B2777880031AAAF /* Main Body */ = {
+		608FFF6A2B2A3A5500FB1296 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				60C26A372B2777960031AAAF /* MainBody.swift */,
+				608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */,
 			);
-			path = "Main Body";
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		60D9E7D62A1025BA00037683 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				60C26A362B2777880031AAAF /* Main Body */,
+				608FFF6A2B2A3A5500FB1296 /* Settings */,
 				6072A2EF2A2106A70041483A /* Fetching Data Animation */,
 				60DE8E7D2A1C3997002BD9D8 /* Enable Current Location  */,
 				6029FAB82A1BAD5000D901B8 /* Onboarding Weather Display */,
@@ -435,6 +435,7 @@
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
 				60544BB72B223E01004782FB /* UserDelegate.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
+				608FFF6C2B2A3A8100FB1296 /* SettingsView.swift in Sources */,
 				60EB63D32A35834E00CC2F17 /* TenDayTemperatureView.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
 				60544BBE2B224297004782FB /* TemperatureMeasurement.swift in Sources */,
@@ -459,7 +460,6 @@
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
 				6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */,
 				6072A2F12A2107350041483A /* FetchingDataView.swift in Sources */,
-				60C26A382B2777960031AAAF /* MainBody.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
@@ -602,7 +602,7 @@
 				DEVELOPMENT_TEAM = SPUKTJZVPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to use your current location to find the weather in your area.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather information, Weather Provider requires access to your current location. Please enable location access to “Allow While Using App” for the best results.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -632,7 +632,7 @@
 				DEVELOPMENT_TEAM = SPUKTJZVPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow $(PRODUCT_NAME) to use your current location to find the weather in your area.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To provide accurate weather information, Weather Provider requires access to your current location. Please enable location access to “Allow While Using App” for the best results.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

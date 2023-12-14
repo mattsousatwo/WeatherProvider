@@ -94,6 +94,7 @@ struct EnableLocationView: View {
                 }))
             }
         }
+        .navigationBarBackButtonHidden(true)
         
     }
     

@@ -28,7 +28,7 @@ struct WPButton: View {
     
     public init(_ text: String, theme: Theme, action: @escaping () -> Void) {
         self.text = text
-        self.accent = theme.accentColor
+        self.accent = theme.weatherBackground
         self.textColor = theme.textColor
         self.action = action
     }

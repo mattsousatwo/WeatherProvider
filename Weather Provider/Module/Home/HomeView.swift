@@ -25,22 +25,48 @@ struct HomeView: View {
     let viewModel = HomeViewModel()
     
     var body: some View {
-        
-        Background(themeManager.currentTheme) {
-            switch viewState {
-                case .loading:
-                    ProgressView()
-                case .failure(let reason):
-                    Text("Failure - \(reason)")
-                case .success:
-                    viewStructure()
+        NavigationStack {
+            Background(themeManager.currentTheme) {
+                VStack {
+                    switch viewState {
+                        case .loading:
+                            ProgressView()
+                        case .failure(let reason):
+                            Text("Failure - \(reason)")
+                        case .success:
+                            viewStructure()
+                    }
+                    
+                    
+                    
+                    HStack {
+                        Spacer()
+                        WPNavigationLink(label: "Settings") {
+                            SettingsView()
+                                .environmentObject(themeManager)
+                                .environmentObject(userDelegate)
+                        }
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
             }
         }
+        .tint(themeManager.currentTheme.accentColor)
         .onAppear {
             print("Home - Loading")
             switch locationManager.locationManager.authorizationStatus {
                 case .denied, .restricted, .notDetermined:
                     viewState = .failure(reason: "Authorization Status - \(locationManager.locationManager.authorizationStatus.name)")
+                    locationManager.locationManager.requestWhenInUseAuthorization()
                     print("Home - Failure - \(viewState)")
                 case .authorized, .authorizedAlways, .authorizedWhenInUse:
                     viewState = .success
@@ -49,25 +75,11 @@ struct HomeView: View {
                     viewState = .failure(reason: "Unknown Reason")
                     print("Home - Default Failure - \(viewState)")
             }
-            
-//            if locationManager.locationManager.authorizationStatus == .authorizedWhenInUse ||
-//                locationManager.locationManager.authorizationStatus == .authorizedAlways {
-//                
-//                viewState = .failure(reason: "Authorization Status - \(locationManager.locationManager.authorizationStatus.name)")
-//                
-//            } else {
-//                viewState = .success
-//            }
         }
         
-//        switch locationManager.locationManager.authorizationStatus {
-//            case .authorizedAlways, .authorizedWhenInUse:
-//                viewStructure()
-//            case .restricted, .denied, .notDetermined:
-//                ProgressView()
-//            default:
-//                ProgressView()
-//        }
+        
+        
+        
     }
 
 }

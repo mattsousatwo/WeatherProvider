@@ -15,7 +15,12 @@ struct WPText: View {
         self.textString = text
         self.color = color 
     }
-    /// String property for the Text View 
+    /// Set the Text and Color values using a Theme
+    init(_ text: String, _ theme: Theme) {
+        self.textString = text
+        self.color = theme.textColor
+    }
+    /// String property for the Text View
     private let textString: String
     private let color: Color
     

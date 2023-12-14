@@ -18,6 +18,7 @@ struct OnboardingViewModel: WPViewModel {
     func mainBody(_ theme: Theme) -> some View  {
         NavigationStack {
             viewStructure(theme)
+                
         }
     }
 }
