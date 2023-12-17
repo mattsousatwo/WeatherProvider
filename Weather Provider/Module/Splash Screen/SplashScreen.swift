@@ -65,7 +65,6 @@ struct SplashScreen: View {
         }
         .onAppear {
             triggerLoadingAnimation()
-            
         }
         .onChange(of: fetchData) { oldValue, newValue in
             if fetchData == true && 
@@ -91,11 +90,14 @@ struct SplashScreen: View {
         }
         
         .onChange(of: weatherInfo) { oldValue, newValue in
-            if weatherInfo == nil {
+            guard let weatherInfo = weatherInfo else {
                 viewState = .failure(reason: "WeatherInfo Failed to Load")
-            } else {
-                viewState = .success
+                return
             }
+            viewState = .success
+            userDelegate.save(location: weatherInfo.location)
+            
+
         }
         
         .onChange(of: locationManager.authorizationStatus) { oldValue, newValue in

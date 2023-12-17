@@ -17,10 +17,6 @@ struct EnableLocationView: View {
     @StateObject var locationManager = LocationManager()
     @ObservedObject var weatherNetwork = WeatherNetwork()
     
-    @State private var fetchTenDayForecast: Bool = false
-    @State private var dataLoaded: Bool = false
-    @State private var longitudeAndLatitude: String = ""
-    
     @State private var weatherInfo: WeatherInfo? = nil
     @State private var goToSettingsAlert: Bool = false
     
@@ -33,15 +29,13 @@ struct EnableLocationView: View {
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
-                            weatherDisplay(weather)
+                            TemporaryWeatherDisplay(weather: weather,
+                                                    theme: themeManager.currentTheme)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
 //                                Background(themeManager.currentTheme) {
 //                                    FetchingDataView()
-                                
-                                
-                                // MARK: - ISSUE WPTL-22
-                                // Will somehow trigger a segue to SplashScreen
+
                                 HomeView(weatherInfo: weather)
                                         .environmentObject(themeManager)
                                         .environmentObject(userDelegate)
@@ -95,65 +89,6 @@ struct EnableLocationView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        
-    }
-    
-    func weatherDisplay(location: String, time: String, temp: Double, feelsLike: Double, condition: WeatherCondition) -> some View {
-        return VStack {
-            WPOTitle(location, color: themeManager.currentTheme.textColor)
-            Text(time)
-                .fontDesign(.rounded)
-            //                .foregroundColor(theme.textColor)
-            WPText("\(condition.text)", color: themeManager.currentTheme.textColor)
-                .padding(.bottom, 2)
-            
-            Image(systemName: "sun.max.fill")
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.yellow)
-                .padding(.vertical, 5)
-            
-            Text("\(temp)" + "°")
-                .fontDesign(.rounded)
-                .foregroundColor(themeManager.currentTheme.textColor)
-                .padding(.vertical, 2)
-            
-            WPText("Feels like: \(temp)" + "°", color: themeManager.currentTheme.textColor)
-        }
-        .padding()
-        .background(themeManager.currentTheme.weatherBackground)
-        .cornerRadius(12)
-        
-    }
-
-    func weatherDisplay(_ weather: WeatherInfo) -> some View {
-        return VStack {
-            WPOTitle(weather.location.name, color: themeManager.currentTheme.textColor)
-            Text(weather.location.localtime)
-                .fontDesign(.rounded)
-            //                .foregroundColor(theme.textColor)
-            WPText("\(weather.currentWeather.condition.text)", color: themeManager.currentTheme.textColor)
-                .padding(.bottom, 2)
-            
-            if let currentDay = weather.forecast.forecastday.first?.day {
-                currentDay.condition.image()
-                    .resizable()
-                    .renderingMode(.original)
-                    .foregroundColor(.white)
-                    .frame(width: 25, height: 25)
-                    .padding(.vertical, 5)
-            }
-
-            Text("\(Degree(weather.currentWeather.temperatureFahrenheit).asString)")
-                .fontDesign(.rounded)
-                .foregroundColor(themeManager.currentTheme.textColor)
-                .padding(.vertical, 2)
-            
-            WPText("Feels like: \(Degree(weather.currentWeather.feelsLikeFahrenheit).asString)", color: themeManager.currentTheme.textColor)
-        }
-        .padding()
-        .background(themeManager.currentTheme.weatherBackground)
-        .cornerRadius(12)
         
     }
 }

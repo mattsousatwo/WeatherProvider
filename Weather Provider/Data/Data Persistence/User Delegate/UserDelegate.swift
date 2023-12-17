@@ -17,7 +17,7 @@ public class UserDelegate: LoadingClass, ObservableObject {
     @Published var delegateFileIsLoaded: Bool = false
     
     @Published var didCompleteOnboarding: Bool = false
-    @Published var userLocation: String = ""
+    @Published var savedLocations: [Location] = []
     @Published var theme: Theme = ThemeList.one.theme
     @Published var tempMeasurement: TemperatureMeasurement = .fahrenheit
     @Published var sendAlertsIsActive: Bool = false
@@ -66,7 +66,7 @@ extension UserDelegate {
                 // Set attributes to UserDelegate properties
                 guard let userAttributes = userAttributes else { return }
                 self.didCompleteOnboarding = userAttributes.didCompleteOnboarding
-                self.userLocation = userAttributes.userLocation
+                self.savedLocations = userAttributes.savedLocations
                 if let theme = matchTheme(name: userAttributes.theme) {
                     self.theme = theme
                 }
@@ -139,6 +139,21 @@ extension UserDelegate {
 
         }
         saveUserDelegate()
+    }
+    
+    func save(location: Location) {
+        print(#function)
+        var shouldSave = true
+        for savedLocation in self.savedLocations {
+            if savedLocation == location {
+                print("Location Already Saved")
+                shouldSave = false
+            }
+        }
+        if shouldSave == true {
+            self.userAttributes?.savedLocations.append(location)
+            saveUserDelegate()
+        }
     }
     
     /// Match the saved theme name to the existing theme list
