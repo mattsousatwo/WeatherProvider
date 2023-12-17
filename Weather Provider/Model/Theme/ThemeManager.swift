@@ -11,6 +11,7 @@ import SwiftUI
 /// File to control the theme of the application
 class ThemeManager: ObservableObject {
     
+
     @Published var currentTheme: Theme
     
     init(currentTheme: Theme) {
@@ -18,7 +19,10 @@ class ThemeManager: ObservableObject {
     }
     
     init() {
+ 
         self.currentTheme = ThemeList.one.theme
+        
+
     }
     
 }

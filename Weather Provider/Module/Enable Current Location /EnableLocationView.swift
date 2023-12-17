@@ -9,14 +9,13 @@ import SwiftUI
 import CoreLocationUI
 
 /// Durring the onboarding process this view is shown to allow the user to easily enable the app to access the users current location
+@available(iOS 17.0, *)
 struct EnableLocationView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    @StateObject var locationManager = LocationManager() 
-    @ObservedObject var weatherNetwork = WeatherNetwork()
+    @EnvironmentObject var userDelegate: UserDelegate
     
-    @State private var fetchTenDayForecast: Bool = false
-    @State private var dataLoaded: Bool = false
-    @State private var longitudeAndLatitude: String = ""
+    @StateObject var locationManager = LocationManager()
+    @ObservedObject var weatherNetwork = WeatherNetwork()
     
     @State private var weatherInfo: WeatherInfo? = nil
     @State private var goToSettingsAlert: Bool = false
@@ -30,18 +29,17 @@ struct EnableLocationView: View {
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
-//                            weatherDisplay(location: weather.location.name,
-//                                           time: weather.location.localtime,
-//                                           temp: weather.currentWeather.temperatureFahrenheit,
-//                                           feelsLike: weather.currentWeather.feelsLikeFahrenheit,
-//                                           condition: weather.currentWeather.condition)
-                            weatherDisplay(weather)
+                            TemporaryWeatherDisplay(weather: weather,
+                                                    theme: themeManager.currentTheme)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
-                                Background(themeManager.currentTheme) {
-                                    FetchingDataView()
+//                                Background(themeManager.currentTheme) {
+//                                    FetchingDataView()
+
+                                HomeView(weatherInfo: weather)
                                         .environmentObject(themeManager)
-                                }
+                                        .environmentObject(userDelegate)
+////                                }
                             }
                             Spacer()
                         } else {
@@ -50,10 +48,10 @@ struct EnableLocationView: View {
                                 Spacer()
                             }
                             .onAppear {
-                                let longAndLat = "\(locationManager.locationManager.location?.coordinate.latitude.description ?? "Error Loading"),\(locationManager.locationManager.location?.coordinate.longitude.description ?? "Error Loading")"
                                 print("EnableLocation - Theme - \(themeManager.currentTheme)")
                                 Task {
-                                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: longAndLat)
+                                    print("EnableLocationView")
+                                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.locationManager.longituteAndLatitude)
                                 }
                             }
                         }
@@ -90,65 +88,7 @@ struct EnableLocationView: View {
                 }))
             }
         }
-        
-    }
-    
-    func weatherDisplay(location: String, time: String, temp: Double, feelsLike: Double, condition: WeatherCondition) -> some View {
-        return VStack {
-            WPOTitle(location, color: themeManager.currentTheme.textColor)
-            Text(time)
-                .fontDesign(.rounded)
-            //                .foregroundColor(theme.textColor)
-            WPText("\(condition.text)", color: themeManager.currentTheme.textColor)
-                .padding(.bottom, 2)
-            
-            Image(systemName: "sun.max.fill")
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.yellow)
-                .padding(.vertical, 5)
-            
-            Text("\(temp)" + "°")
-                .fontDesign(.rounded)
-                .foregroundColor(themeManager.currentTheme.textColor)
-                .padding(.vertical, 2)
-            
-            WPText("Feels like: \(temp)" + "°", color: themeManager.currentTheme.textColor)
-        }
-        .padding()
-        .background(themeManager.currentTheme.weatherBackground)
-        .cornerRadius(12)
-        
-    }
-
-    func weatherDisplay(_ weather: WeatherInfo) -> some View {
-        return VStack {
-            WPOTitle(weather.location.name, color: themeManager.currentTheme.textColor)
-            Text(weather.location.localtime)
-                .fontDesign(.rounded)
-            //                .foregroundColor(theme.textColor)
-            WPText("\(weather.currentWeather.condition.text)", color: themeManager.currentTheme.textColor)
-                .padding(.bottom, 2)
-            
-            if let currentDay = weather.forecast.forecastday.first?.day {
-                currentDay.condition.image()
-                    .resizable()
-                    .renderingMode(.original)
-                    .foregroundColor(.white)
-                    .frame(width: 25, height: 25)
-                    .padding(.vertical, 5)
-            }
-
-            Text("\(Degree(weather.currentWeather.temperatureFahrenheit).asString)")
-                .fontDesign(.rounded)
-                .foregroundColor(themeManager.currentTheme.textColor)
-                .padding(.vertical, 2)
-            
-            WPText("Feels like: \(Degree(weather.currentWeather.feelsLikeFahrenheit).asString)", color: themeManager.currentTheme.textColor)
-        }
-        .padding()
-        .background(themeManager.currentTheme.weatherBackground)
-        .cornerRadius(12)
+        .navigationBarBackButtonHidden(true)
         
     }
 }

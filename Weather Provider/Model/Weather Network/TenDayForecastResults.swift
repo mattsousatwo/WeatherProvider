@@ -331,23 +331,42 @@ struct Hour: Codable {
 
 
 // ----------------------------------------------
-struct Location: Codable, Equatable {
+struct Location: Codable, Equatable, CustomStringConvertible {
     let name: String
     let region: String
     let country: String
     let latitude: Double
     let longitude: Double
     let timezoneID: String
-    let localtimeEpoch: Int
-    let localtime: String
+    let localTimeEpoch: Int
+    let localTime: String
+    
+    init(name: String, region: String, country: String, latitude: Double, longitude: Double, timezoneID: String = "", localTimeEpoch: Int = 0, localTime: String = "") {
+        self.name = name
+        self.region = region
+        self.country = country
+        self.latitude = latitude
+        self.longitude = longitude
+        self.timezoneID = timezoneID
+        self.localTimeEpoch = localTimeEpoch
+        self.localTime = localTime
+    }
     
     enum CodingKeys: String, CodingKey {
         case name, region, country
         case latitude = "lat"
         case longitude = "lon"
         case timezoneID = "tz_id"
-        case localtimeEpoch = "localtime_epoch"
-        case localtime
+        case localTimeEpoch = "localtime_epoch"
+        case localTime = "localtime"
+    }
+    
+    var description: String {
+        return "\(name), \(country), \n(\(longitude),\(latitude))"
+    }
+    
+    static func ==(lhs: Location, rhs: Location) -> Bool {
+        return lhs.name == rhs.name && lhs.region == rhs.region && lhs.country == rhs.country && lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude && lhs.timezoneID == rhs.timezoneID && lhs.localTimeEpoch == rhs.localTimeEpoch && lhs.localTime == rhs.localTime
     }
 }
 
@@ -442,6 +461,30 @@ struct AirQuality: Codable {
         case pm10
         case usEPAIndex = "us-epa-index"
         case gbDefraIndex = "gb-defra-index"
+    }
+}
+
+struct AutoCompleteLocation: Codable, Equatable {
+    let id: Double
+    let name: String
+    let region: String
+    let country: String
+    let latitude: Double
+    let longitude: Double
+    let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case region = "region"
+        case country = "country"
+        case latitude = "lat"
+        case longitude = "lon"
+        case url = "url"
+    }
+    
+    func asLocation() -> Location {
+        return Location(name: self.name, region: self.region, country: self.country, latitude: self.latitude, longitude: self.longitude)
     }
 }
 
