@@ -10,14 +10,13 @@ import SwiftUI
 /// Onboarding view to display a message to the user to describe the functionality of the application
 @available(iOS 17.0, *)
 struct OnboardingView: View {
-    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var userDelegate: UserDelegate
     
     let viewModel = OnboardingViewModel()
     
     var body: some View {
         
-        viewModel.mainBody(themeManager.currentTheme)
+        viewModel.mainBody(userDelegate.theme)
     }
 }
 

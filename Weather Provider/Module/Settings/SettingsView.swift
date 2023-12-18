@@ -9,14 +9,13 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct SettingsView: View {
-    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var userDelegate: UserDelegate
     
     
 
     var body: some View {
         NavigationStack {
-            Background(themeManager.currentTheme) {
+            Background(userDelegate.theme) {
                 
                 VStack(alignment: .trailing) {
                     header()
@@ -24,32 +23,31 @@ struct SettingsView: View {
                         
                         NavigationLink {
                             ThemePickerView()
-                                .environmentObject(themeManager)
                                 .environmentObject(userDelegate)
                         } label: {
-                            WPText("Select Theme", themeManager.currentTheme)
+                            WPText("Select Theme", userDelegate.theme)
                                 .padding()
                                 
                         }
-                        .listRowBackground(themeManager.currentTheme.weatherBackground)
+                        .listRowBackground(userDelegate.theme.weatherBackground)
 
                         
-                        WPText("Select Theme", themeManager.currentTheme)
-                            .listRowBackground(themeManager.currentTheme.weatherBackground)
+                        WPText("Select Theme", userDelegate.theme)
+                            .listRowBackground(userDelegate.theme.weatherBackground)
                             .padding()
                         
-                        WPText("Saved Locations", themeManager.currentTheme)
-                            .listRowBackground(themeManager.currentTheme.weatherBackground)
+                        WPText("Saved Locations", userDelegate.theme)
+                            .listRowBackground(userDelegate.theme.weatherBackground)
                             .padding()
                         
-                        WPText("Temperature Measurement", themeManager.currentTheme)
-                            .listRowBackground(themeManager.currentTheme.weatherBackground)
+                        WPText("Temperature Measurement", userDelegate.theme)
+                            .listRowBackground(userDelegate.theme.weatherBackground)
                             .padding()
                             
                     }
                     
                     
-                    .background(themeManager.currentTheme.backgroundColor)
+//                    .background(userDelegate.theme.backgroundColor)
                     
                     .scrollContentBackground(.hidden)
                     Spacer()
@@ -69,7 +67,7 @@ extension SettingsView {
     func header() -> some View {
         HStack {
             WPOTitle("Settings",
-                     color: themeManager.currentTheme.textColor)
+                     color: userDelegate.theme.textColor)
                 .padding()
             Spacer()
         }
@@ -79,6 +77,5 @@ extension SettingsView {
 @available(iOS 17.0, *)
 #Preview {
     SettingsView()
-        .environmentObject(ThemeManager() )
         .environmentObject(UserDelegate() )
 }

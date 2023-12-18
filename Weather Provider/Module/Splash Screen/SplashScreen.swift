@@ -10,8 +10,6 @@ import CoreLocation
 
 @available(iOS 17.0, *)
 struct SplashScreen: View {
-    
-    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var userDelegate: UserDelegate
     
     @State private var isAppLoaded: Bool = false
@@ -20,7 +18,6 @@ struct SplashScreen: View {
     @ObservedObject var weatherNetwork = WeatherNetwork()
     @State private var weatherInfo: WeatherInfo? = nil
     
-//    @StateObject var locationManager = LocationManager()
     let locationManager = CLLocationManager()
     
     @State var viewState: ViewState = .loading
@@ -30,7 +27,7 @@ struct SplashScreen: View {
     
     
     var body: some View {
-        Background(themeManager.currentTheme) {
+        Background(userDelegate.theme) {
             switch userDelegate.didCompleteOnboarding {
                 case true:
                     switch viewState {
@@ -39,10 +36,9 @@ struct SplashScreen: View {
                         case .failure(let reason):
                             completeOnboardingFailure(reason)
                         case .success:
-//                            completeOnboardingSuccess()
+
                             if let weatherInfo = weatherInfo {
                                 HomeView(weatherInfo: weatherInfo)
-                                    .environmentObject(themeManager)
                                     .environmentObject(userDelegate)
                             } else {
                                 completeOnboardingFailure("Failed to unwrap WeatherInfo - \(locationManager.authorizationStatus)")
@@ -56,9 +52,7 @@ struct SplashScreen: View {
                         case .failure(let reason):
                             incompleteOnboardingFailure(reason)
                         case .success:
-//                            incompleteOnboardingSuccess()
                             OnboardingView()
-                                .environmentObject(themeManager)
                                 .environmentObject(userDelegate)
                     }
             }
@@ -125,9 +119,8 @@ struct SplashScreen: View {
 extension SplashScreen {
     
     func weatherAnimation() -> some View {
-        WeatherSplashAnimation(isActive: $loadingAnimationIsActive, theme: themeManager.currentTheme)
+        WeatherSplashAnimation(isActive: $loadingAnimationIsActive, theme: userDelegate.theme)
         .onChange(of: weatherInfo) {
-//            self.isAppLoaded = true
             self.loadingAnimationIsActive = false
         }
     }
@@ -151,7 +144,6 @@ extension SplashScreen {
         // After 2.3 sec cancel loading animation
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
             withAnimation {
-                //                    self.isAppLoaded = true
                 self.viewState = .success
                 self.loadingAnimationIsActive = false
             }
@@ -166,26 +158,23 @@ extension SplashScreen {
 extension SplashScreen {
     
     func incompleteOnboardingLoading() -> some View {
-//        WPText("Splash 2", color: themeManager.currentTheme.textColor)
         weatherAnimation()
     }
     
     func incompleteOnboardingFailure(_ reason: String) -> some View {
-        WPText("Splash 4 - \(reason)", color: themeManager.currentTheme.textColor)
+        WPText("Splash 4 - \(reason)", color: userDelegate.theme.textColor)
     }
     
     // --------------------------
     
     func completeOnboardingLoading() -> some View {
-        //        WPText("Splash 1", color: themeManager.currentTheme.textColor)
         weatherAnimation()
     }
     
     func completeOnboardingFailure(_ reason: String) -> some View {
         locationManager.requestWhenInUseAuthorization()
-//        return WPText("Splash 3 - \(reason)", color: themeManager.currentTheme.textColor)
         return WPButton("Splash 3 - \(reason)",
-                        theme: themeManager.currentTheme) {
+                        theme: userDelegate.theme) {
             runAnimation()
         }
     }
@@ -202,56 +191,3 @@ struct SplashScreen_Previews: PreviewProvider {
         SplashScreen()
     }
 }
-
-
-
-
-//switch viewState {
-//    case .loading:
-//        weatherAnimation()
-//            .onAppear {
-//                if userDelegate.didCompleteOnboarding == true {
-//                    fetchData = true
-//                } else {
-//                    fetchData = false
-//                }
-//            }
-//        // MARK: -
-//    case .failure(let reason):
-//        VStack(alignment: .center, spacing: 20) {
-//            WPText("Splash Screen - 1 - \(reason)", color: themeManager.currentTheme.textColor)
-//            WPButton("Reload", theme: themeManager.currentTheme) {
-//                runAnimation()
-//            }
-//        }
-//        // MARK: -
-//    case .success:
-//        if userDelegate.didCompleteOnboarding == true {
-//            if let weatherInfo = weatherInfo {
-//                HomeView(weatherInfo: weatherInfo)
-//                    .environmentObject(themeManager)
-//                    .environmentObject(userDelegate)
-//            } else {
-//                // MARK: -
-//                switch viewState {
-//                    case .failure(let reason):
-//                        WPText("Splash Screen - 2 - \(reason)", color: themeManager.currentTheme.textColor)
-//                    default:
-//                        Text("Splash Screen - default")
-//                }
-//                WPButton("Reload", theme: themeManager.currentTheme) {
-//                    runAnimation()
-//                }
-//                .onAppear {
-//                    fetchData = false
-//                    viewState = .failure(reason: "WeatherInfo failed to unwrap")
-//                }
-//                // MARK: -
-//            }
-//            
-//        } else if userDelegate.didCompleteOnboarding == false {
-//            OnboardingView()
-//                .environmentObject(themeManager)
-//                .environmentObject(userDelegate)
-//        }
-//    }

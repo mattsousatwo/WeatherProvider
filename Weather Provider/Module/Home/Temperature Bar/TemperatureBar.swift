@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TemperatureBar: View {
     
-    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var userDelegate: UserDelegate
     
     var day: Forecastday
     
@@ -57,7 +57,7 @@ struct TemperatureBar: View {
     var body: some View {
         HStack {
             Spacer() 
-            dayLabel(daysName, themeManager.currentTheme)
+            dayLabel(daysName, userDelegate.theme)
             Spacer()
             weatherImage("sun.max.fill")
             Spacer()
@@ -84,13 +84,13 @@ extension TemperatureBar {
     }
     
     func minimumTempView(_ temp: Degree) -> some View {
-        WPText("\(temp.asString)", color: themeManager.currentTheme.textColor)
+        WPText("\(temp.asString)", color: userDelegate.theme.textColor)
             .multilineTextAlignment(.trailing)
             .frame(width: 34, alignment: .trailing)
     }
     
     func maximumTempView(_ temp: Degree) -> some View {
-        WPText("\(temp.asString)", color: themeManager.currentTheme.textColor)
+        WPText("\(temp.asString)", color: userDelegate.theme.textColor)
             .fontWeight(.semibold)
             .multilineTextAlignment(.leading)
             .frame(width: 34, alignment: .leading)

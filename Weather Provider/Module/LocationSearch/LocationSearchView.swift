@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct LocationSearchView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+
     @EnvironmentObject var userDelegate: UserDelegate
     @Environment(\.dismiss) var dismiss
     
@@ -27,7 +27,7 @@ struct LocationSearchView: View {
     
     
     var body: some View {
-        Background(themeManager.currentTheme) {
+        Background(userDelegate.theme) {
             ZStack {
                 locationDisplay()
                 if isSearching == true {
@@ -35,7 +35,7 @@ struct LocationSearchView: View {
                         ForEach(searchResults, id: \.id) { result in
                             searchListRow(location: result)
                         }
-                        .listRowBackground(themeManager.currentTheme.weatherBackground)
+                        .listRowBackground(userDelegate.theme.weatherBackground)
                     } // List
                     .listStyle(.plain)
                 }
@@ -47,14 +47,18 @@ struct LocationSearchView: View {
             // MARK: DISMISS KEYBOARD - ISSUE: #WPTL-36
             print("Submit")
         }
-        .tint(themeManager.currentTheme.accentColor)
+        .tint(userDelegate.theme.accentColor)
         .onAppear {
             isSearching = false
         }
         .onChange(of: query) { oldValue, newValue in
             if !newValue.isEmpty {
                 Task(priority: .background) {
-                    searchResults = try await weatherNetwork.searchAutoComplete(for: query)
+                    do {
+                        searchResults = try await weatherNetwork.searchAutoComplete(for: query)
+                    } catch {
+                        print("Could not fetch Search Results")
+                    }
                 }
             } else {
                 
@@ -67,7 +71,6 @@ struct LocationSearchView: View {
 @available(iOS 17.0, *)
 #Preview {
     LocationSearchView(isSearching: true)
-        .environmentObject(ThemeManager() )
         .environmentObject(UserDelegate() )
 }
 
@@ -85,14 +88,14 @@ extension LocationSearchView {
             
             VStack(alignment: .leading) {
                 WPText("\(location.name), \(location.region)",
-                       themeManager.currentTheme)
+                       userDelegate.theme)
                 .font(.title2)
                 .bold()
                 WPText("\(location.country)",
-                       themeManager.currentTheme)
+                       userDelegate.theme)
                 .font(.body)
                 WPText("lat: \(location.latitude.roundByTwoDigits)°, long: \(location.longitude.roundByTwoDigits)°",
-                       themeManager.currentTheme)
+                       userDelegate.theme)
                 .italic()
             }
             .padding(5)
@@ -110,16 +113,16 @@ extension LocationSearchView {
                 case .loading, .success:
                     VStack {
                         WPOTitle("New Location:",
-                                 color: themeManager.currentTheme.textColor)
+                                 color: userDelegate.theme.textColor)
                         Spacer()
                         
                         TemporaryWeatherDisplay(weather: weatherData,
-                                                theme: themeManager.currentTheme)
+                                                theme: userDelegate.theme)
                         .padding(.horizontal, 20)
                         Spacer()
                         if viewState == .success {
                             WPButton("Select",
-                                     theme: themeManager.currentTheme) {
+                                     theme: userDelegate.theme) {
                                 guard let searchLocation = searchLocation else { return }
                                 userDelegate.save(location: searchLocation.asLocation() )
                                 dismiss()
@@ -129,7 +132,7 @@ extension LocationSearchView {
                     }.padding()
                     
                 case .failure(_):
-                    WPText("Failure", themeManager.currentTheme)
+                    WPText("Failure", userDelegate.theme)
                     
             }
             if searchResults.count != 0 && isSearching == true  {

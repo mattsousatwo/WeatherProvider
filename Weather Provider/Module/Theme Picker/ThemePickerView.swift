@@ -13,7 +13,6 @@ struct ThemePickerView: View {
     @Environment(\.dismiss) var dismiss
     @State private var themeIndex: Int = 0
     @State private var currentTheme: Theme = ThemeList.one.theme
-    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var userDelegate: UserDelegate
     
     var body: some View {
@@ -79,17 +78,15 @@ struct ThemePickerView: View {
                 case true:
                     WPButton("Select Theme",
                              theme: currentTheme) {
-                        themeManager.updateCurrentTheme(with: currentTheme)
                         userDelegate.save(theme: currentTheme)
                         dismiss()
                     }
                 case false:
                     WPNavigationLink(label: "Select Theme", theme: currentTheme) {
                         EnableLocationView()
-                            .environmentObject(themeManager)
                             .environmentObject(userDelegate)
                             .onAppear {
-                                themeManager.updateCurrentTheme(with: currentTheme)
+
                                 userDelegate.save(theme: currentTheme)
                                 print("Theme Selected: \(currentTheme)")
                             }

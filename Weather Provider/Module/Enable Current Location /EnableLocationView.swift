@@ -11,7 +11,6 @@ import CoreLocationUI
 /// Durring the onboarding process this view is shown to allow the user to easily enable the app to access the users current location
 @available(iOS 17.0, *)
 struct EnableLocationView: View {
-    @EnvironmentObject var themeManager: ThemeManager
     @EnvironmentObject var userDelegate: UserDelegate
     
     @StateObject var locationManager = LocationManager()
@@ -22,33 +21,28 @@ struct EnableLocationView: View {
     
     var body: some View {
         
-        Background(themeManager.currentTheme) {
+        Background(userDelegate.theme) {
             VStack {
-                WPOTitle("Enable Location Services", color: themeManager.currentTheme.textColor)
+                WPOTitle("Enable Location Services", color: userDelegate.theme.textColor)
                 Spacer()
                 switch locationManager.locationManager.authorizationStatus {
                     case .authorizedWhenInUse, .authorizedAlways:
                         if let weather = weatherInfo {
                             TemporaryWeatherDisplay(weather: weather,
-                                                    theme: themeManager.currentTheme)
+                                                    theme: userDelegate.theme)
                             Spacer()
-                            WPNavigationLink(label: "Get Started!", theme: themeManager.currentTheme) {
-//                                Background(themeManager.currentTheme) {
-//                                    FetchingDataView()
-
+                            WPNavigationLink(label: "Get Started!", theme: userDelegate.theme) {
                                 HomeView(weatherInfo: weather)
-                                        .environmentObject(themeManager)
                                         .environmentObject(userDelegate)
-////                                }
                             }
                             Spacer()
                         } else {
                             VStack {
-                                WPText("Gathering location data...", color: themeManager.currentTheme.textColor)
+                                WPText("Gathering location data...", color: userDelegate.theme.textColor)
                                 Spacer()
                             }
                             .onAppear {
-                                print("EnableLocation - Theme - \(themeManager.currentTheme)")
+                                print("EnableLocation - Theme - \(userDelegate.theme)")
                                 Task {
                                     print("EnableLocationView")
                                     weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.locationManager.longituteAndLatitude)
@@ -58,17 +52,17 @@ struct EnableLocationView: View {
                         
                         
                     case .restricted, .denied:
-                        WPText("Current location data was restricted or denied.", color: themeManager.currentTheme.textColor)
+                        WPText("Current location data was restricted or denied.", color: userDelegate.theme.textColor)
                         Spacer()
-                        WPButton("Request Access", accent: themeManager.currentTheme.weatherBackground, textColor: themeManager.currentTheme.textColor, action: {
+                        WPButton("Request Access",
+                                 accent: userDelegate.theme.weatherBackground,
+                                 textColor: userDelegate.theme.textColor, action: {
                             goToSettingsAlert = true
                         })
                         .cornerRadius(12)
-//                        .foregroundColor(Color("TextColor"))
-//                        .tint(Color("WeatherBackground"))
                         Spacer()
                     case .notDetermined:
-                        WPText("Gathering location data...", color: themeManager.currentTheme.textColor)
+                        WPText("Gathering location data...", color: userDelegate.theme.textColor)
                         ProgressView()
                             .padding()
                         Spacer()

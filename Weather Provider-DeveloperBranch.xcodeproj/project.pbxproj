@@ -14,14 +14,27 @@
 		6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */; };
 		6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB02A18031600D901B8 /* WPNavigationLink.swift */; };
 		6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAB92A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift */; };
-		6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FABD2A1BAED800D901B8 /* ThemeManager.swift */; };
 		6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC02A1BAF3300D901B8 /* Theme.swift */; };
 		6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */; };
-		602EF3E92A367053008D8D36 /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602EF3E82A367053008D8D36 /* WeatherCondition.swift */; };
 		6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA882A1D223E0003377B /* WeatherNetwork.swift */; };
-		6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */; };
 		603E20E62A17203500328253 /* WPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E52A17203500328253 /* WPLabel.swift */; };
 		603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E20E82A17242000328253 /* WPLabelViewModel.swift */; };
+		604352AF2B30CC490049115E /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352AE2B30CC490049115E /* Condition.swift */; };
+		604352B12B30CC5D0049115E /* ConditionDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352B02B30CC5D0049115E /* ConditionDescription.swift */; };
+		604352B32B30CCA90049115E /* WindDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352B22B30CCA90049115E /* WindDirection.swift */; };
+		604352B52B30CCC10049115E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352B42B30CCC10049115E /* Forecast.swift */; };
+		604352B72B30CCED0049115E /* ForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352B62B30CCED0049115E /* ForecastDay.swift */; };
+		604352B92B30CD030049115E /* Astro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352B82B30CD030049115E /* Astro.swift */; };
+		604352BB2B30CD170049115E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352BA2B30CD170049115E /* Day.swift */; };
+		604352BD2B30CD270049115E /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352BC2B30CD270049115E /* Hour.swift */; };
+		604352BF2B30CD360049115E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352BE2B30CD360049115E /* Location.swift */; };
+		604352C12B30CD630049115E /* WeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352C02B30CD630049115E /* WeatherCondition.swift */; };
+		604352C32B30CD7F0049115E /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352C22B30CD7F0049115E /* CurrentWeather.swift */; };
+		604352C52B30CD9D0049115E /* AirQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352C42B30CD9D0049115E /* AirQuality.swift */; };
+		604352C72B30CDAF0049115E /* AutoCompleteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352C62B30CDAF0049115E /* AutoCompleteLocation.swift */; };
+		604352C92B30CDBF0049115E /* DayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352C82B30CDBF0049115E /* DayForecast.swift */; };
+		604352CB2B30CDD60049115E /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352CA2B30CDD60049115E /* WeatherForecast.swift */; };
+		604352CD2B30CDEC0049115E /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604352CC2B30CDEC0049115E /* WeatherInfo.swift */; };
 		60544BB02B22363E004782FB /* LoadingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60544BAF2B22363E004782FB /* LoadingClass.swift */; };
 		60544BB52B2237D0004782FB /* WPKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60544BB42B2237D0004782FB /* WPKeychain.swift */; };
 		60544BB72B223E01004782FB /* UserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60544BB62B223E01004782FB /* UserDelegate.swift */; };
@@ -64,14 +77,27 @@
 		6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPOTitle.swift; sourceTree = "<group>"; };
 		6029FAB02A18031600D901B8 /* WPNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPNavigationLink.swift; sourceTree = "<group>"; };
 		6029FAB92A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWeatherDisplayView.swift; sourceTree = "<group>"; };
-		6029FABD2A1BAED800D901B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		6029FAC02A1BAF3300D901B8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
-		602EF3E82A367053008D8D36 /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
 		6035AA882A1D223E0003377B /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
-		6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDayForecastResults.swift; sourceTree = "<group>"; };
 		603E20E52A17203500328253 /* WPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabel.swift; sourceTree = "<group>"; };
 		603E20E82A17242000328253 /* WPLabelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPLabelViewModel.swift; sourceTree = "<group>"; };
+		604352AE2B30CC490049115E /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		604352B02B30CC5D0049115E /* ConditionDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionDescription.swift; sourceTree = "<group>"; };
+		604352B22B30CCA90049115E /* WindDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDirection.swift; sourceTree = "<group>"; };
+		604352B42B30CCC10049115E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		604352B62B30CCED0049115E /* ForecastDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDay.swift; sourceTree = "<group>"; };
+		604352B82B30CD030049115E /* Astro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astro.swift; sourceTree = "<group>"; };
+		604352BA2B30CD170049115E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		604352BC2B30CD270049115E /* Hour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hour.swift; sourceTree = "<group>"; };
+		604352BE2B30CD360049115E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		604352C02B30CD630049115E /* WeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCondition.swift; sourceTree = "<group>"; };
+		604352C22B30CD7F0049115E /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		604352C42B30CD9D0049115E /* AirQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuality.swift; sourceTree = "<group>"; };
+		604352C62B30CDAF0049115E /* AutoCompleteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteLocation.swift; sourceTree = "<group>"; };
+		604352C82B30CDBF0049115E /* DayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecast.swift; sourceTree = "<group>"; };
+		604352CA2B30CDD60049115E /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
+		604352CC2B30CDEC0049115E /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		60544BAF2B22363E004782FB /* LoadingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingClass.swift; sourceTree = "<group>"; };
 		60544BB42B2237D0004782FB /* WPKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPKeychain.swift; sourceTree = "<group>"; };
 		60544BB62B223E01004782FB /* UserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +174,6 @@
 		6029FABF2A1BAF2500D901B8 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				6029FABD2A1BAED800D901B8 /* ThemeManager.swift */,
 				6029FAC02A1BAF3300D901B8 /* Theme.swift */,
 				6029FAC22A1BB0CF00D901B8 /* ThemeList.swift */,
 			);
@@ -159,24 +184,15 @@
 			isa = PBXGroup;
 			children = (
 				60544BAE2B222A27004782FB /* Data Persistence */,
-				602EF3E72A36703B008D8D36 /* Weather Conditions */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		602EF3E72A36703B008D8D36 /* Weather Conditions */ = {
-			isa = PBXGroup;
-			children = (
-				602EF3E82A367053008D8D36 /* WeatherCondition.swift */,
-			);
-			path = "Weather Conditions";
 			sourceTree = "<group>";
 		};
 		6035AA872A1D22200003377B /* Weather Network */ = {
 			isa = PBXGroup;
 			children = (
+				604352AD2B30CC030049115E /* Network Results */,
 				6035AA882A1D223E0003377B /* WeatherNetwork.swift */,
-				6035AA8A2A1D247C0003377B /* TenDayForecastResults.swift */,
 			);
 			path = "Weather Network";
 			sourceTree = "<group>";
@@ -188,6 +204,29 @@
 				603E20E82A17242000328253 /* WPLabelViewModel.swift */,
 			);
 			path = WPLabel;
+			sourceTree = "<group>";
+		};
+		604352AD2B30CC030049115E /* Network Results */ = {
+			isa = PBXGroup;
+			children = (
+				604352AE2B30CC490049115E /* Condition.swift */,
+				604352B02B30CC5D0049115E /* ConditionDescription.swift */,
+				604352B22B30CCA90049115E /* WindDirection.swift */,
+				604352B42B30CCC10049115E /* Forecast.swift */,
+				604352B62B30CCED0049115E /* ForecastDay.swift */,
+				604352B82B30CD030049115E /* Astro.swift */,
+				604352BA2B30CD170049115E /* Day.swift */,
+				604352BC2B30CD270049115E /* Hour.swift */,
+				604352BE2B30CD360049115E /* Location.swift */,
+				604352C02B30CD630049115E /* WeatherCondition.swift */,
+				604352C22B30CD7F0049115E /* CurrentWeather.swift */,
+				604352C42B30CD9D0049115E /* AirQuality.swift */,
+				604352C62B30CDAF0049115E /* AutoCompleteLocation.swift */,
+				604352C82B30CDBF0049115E /* DayForecast.swift */,
+				604352CA2B30CDD60049115E /* WeatherForecast.swift */,
+				604352CC2B30CDEC0049115E /* WeatherInfo.swift */,
+			);
+			path = "Network Results";
 			sourceTree = "<group>";
 		};
 		60544BAE2B222A27004782FB /* Data Persistence */ = {
@@ -450,38 +489,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6029FABE2A1BAED800D901B8 /* ThemeManager.swift in Sources */,
 				60248C602A15C39E008470E9 /* FileManager+EXT.swift in Sources */,
+				604352C32B30CD7F0049115E /* CurrentWeather.swift in Sources */,
 				608498CC2B2EBD920072B2E2 /* Double+EXT.swift in Sources */,
+				604352C92B30CDBF0049115E /* DayForecast.swift in Sources */,
 				607A5EE62A1687E500910594 /* HomeViewModel.swift in Sources */,
 				60544BB72B223E01004782FB /* UserDelegate.swift in Sources */,
 				607A5EE92A168DC400910594 /* SplashScreen.swift in Sources */,
 				608FFF6C2B2A3A8100FB1296 /* SettingsView.swift in Sources */,
+				604352CD2B30CDEC0049115E /* WeatherInfo.swift in Sources */,
 				60EB63D32A35834E00CC2F17 /* TenDayTemperatureView.swift in Sources */,
+				604352B32B30CCA90049115E /* WindDirection.swift in Sources */,
 				608FFF6F2B2BA33F00FB1296 /* LocationSearchView.swift in Sources */,
 				6068C1302B2E230A003CD275 /* TemporaryWeatherDisplay.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
+				604352BD2B30CD270049115E /* Hour.swift in Sources */,
+				604352BB2B30CD170049115E /* Day.swift in Sources */,
 				60544BBE2B224297004782FB /* TemperatureMeasurement.swift in Sources */,
+				604352C72B30CDAF0049115E /* AutoCompleteLocation.swift in Sources */,
 				608498CE2B2EC2F50072B2E2 /* RoundedCorner.swift in Sources */,
 				6029FAAF2A17FE2B00D901B8 /* WPOTitle.swift in Sources */,
+				604352BF2B30CD360049115E /* Location.swift in Sources */,
 				60EB63CB2A34350400CC2F17 /* TemperatureCapsule.swift in Sources */,
 				608FFF692B294E9D00FB1296 /* WeatherSplashAnimation.swift in Sources */,
+				604352B52B30CCC10049115E /* Forecast.swift in Sources */,
 				603E20E62A17203500328253 /* WPLabel.swift in Sources */,
+				604352CB2B30CDD60049115E /* WeatherForecast.swift in Sources */,
 				607A5EF52A16B15F00910594 /* WPText.swift in Sources */,
-				602EF3E92A367053008D8D36 /* WeatherCondition.swift in Sources */,
+				604352C12B30CD630049115E /* WeatherCondition.swift in Sources */,
 				6029FAC12A1BAF3300D901B8 /* Theme.swift in Sources */,
+				604352AF2B30CC490049115E /* Condition.swift in Sources */,
 				6029FAB12A18031600D901B8 /* WPNavigationLink.swift in Sources */,
 				60EB63CD2A34352300CC2F17 /* TemperatureBar.swift in Sources */,
 				6029FABA2A1BAD6700D901B8 /* OnboardingWeatherDisplayView.swift in Sources */,
 				6029FAC32A1BB0CF00D901B8 /* ThemeList.swift in Sources */,
 				60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */,
 				6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */,
+				604352B72B30CCED0049115E /* ForecastDay.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */,
 				608FFF672B28E60600FB1296 /* ViewState.swift in Sources */,
 				60544BBC2B223E75004782FB /* UserDelegateAttribute.swift in Sources */,
 				607A5EF32A16A2A800910594 /* OnboardingViewModel.swift in Sources */,
 				603E20E92A17242000328253 /* WPLabelViewModel.swift in Sources */,
+				604352B12B30CC5D0049115E /* ConditionDescription.swift in Sources */,
 				6035AA892A1D223E0003377B /* WeatherNetwork.swift in Sources */,
 				6072A2F12A2107350041483A /* FetchingDataView.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
@@ -489,7 +540,8 @@
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
 				60544BB02B22363E004782FB /* LoadingClass.swift in Sources */,
 				60CCB2BD2A30427300D6BE68 /* Degree.swift in Sources */,
-				6035AA8B2A1D247C0003377B /* TenDayForecastResults.swift in Sources */,
+				604352C52B30CD9D0049115E /* AirQuality.swift in Sources */,
+				604352B92B30CD030049115E /* Astro.swift in Sources */,
 				60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */,
 				60544BB52B2237D0004782FB /* WPKeychain.swift in Sources */,
 				60F2728A2A0C998E0025711F /* Weather_ProviderApp.swift in Sources */,

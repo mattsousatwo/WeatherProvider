@@ -21,14 +21,7 @@ public class UserDelegate: LoadingClass, ObservableObject {
     @Published var theme: Theme = ThemeList.one.theme
     @Published var tempMeasurement: TemperatureMeasurement = .fahrenheit
     @Published var sendAlertsIsActive: Bool = false
-    
-//    @Published var shouldCreateDelegate: Bool = true
-    
-//    @EnvironmentObject var themeManager: ThemeManager
-    
-    /// Use an array to store saved locations that the user wants to view the weather for
-    
-    
+
     override init() {
         super.init()
         if delegateFileIsLoaded == false {
@@ -144,11 +137,17 @@ extension UserDelegate {
     func save(location: Location) {
         print(#function)
         var shouldSave = true
+        var foundMatch = false
         for savedLocation in self.savedLocations {
-            if savedLocation == location {
+            if savedLocation.name == location.name &&
+                savedLocation.region == location.region &&
+                savedLocation.country == location.country {
                 print("Location Already Saved")
-                shouldSave = false
+                foundMatch = true
             }
+        }
+        if foundMatch == true {
+            shouldSave = false
         }
         if shouldSave == true {
             self.userAttributes?.savedLocations.append(location)
