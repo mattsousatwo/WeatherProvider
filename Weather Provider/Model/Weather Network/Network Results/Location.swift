@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Location: Codable, Equatable, CustomStringConvertible {
+struct Location: Codable, Equatable, CustomStringConvertible, Hashable {
     let name: String
     let region: String
     let country: String
@@ -40,6 +40,13 @@ struct Location: Codable, Equatable, CustomStringConvertible {
     
     var description: String {
         return "\(name), \(region), \(country), (lon: \(longitude), lat: \(latitude))\n"
+    }
+    
+    /// Returns a string with the users longitude and latitude
+    var longituteAndLatitude: String {
+        let lat = "\(latitude)"
+        let long = "\(longitude)"
+        return lat + "," + long
     }
     
     static func ==(lhs: Location, rhs: Location) -> Bool {

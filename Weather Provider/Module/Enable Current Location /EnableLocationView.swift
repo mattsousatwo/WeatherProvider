@@ -32,7 +32,7 @@ struct EnableLocationView: View {
                                                     theme: userDelegate.theme)
                             Spacer()
                             WPNavigationLink(label: "Get Started!", theme: userDelegate.theme) {
-                                HomeView(weatherInfo: weather)
+                                HomeView(weatherData: [weather])
                                         .environmentObject(userDelegate)
                             }
                             Spacer()

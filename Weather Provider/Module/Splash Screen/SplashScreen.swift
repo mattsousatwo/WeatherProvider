@@ -18,6 +18,8 @@ struct SplashScreen: View {
     @ObservedObject var weatherNetwork = WeatherNetwork()
     @State private var weatherInfo: WeatherInfo? = nil
     
+    @State private var weatherData: [WeatherInfo] = []
+    
     let locationManager = CLLocationManager()
     
     @State var viewState: ViewState = .loading
@@ -33,17 +35,11 @@ struct SplashScreen: View {
                     switch viewState {
                         case .loading:
                             completeOnboardingLoading()
-                        case .failure(let reason):
-                            completeOnboardingFailure(reason)
-                        case .success:
-
-                            if let weatherInfo = weatherInfo {
-                                HomeView(weatherInfo: weatherInfo)
-                                    .environmentObject(userDelegate)
-                            } else {
-                                completeOnboardingFailure("Failed to unwrap WeatherInfo - \(locationManager.authorizationStatus)")
-                            }
-
+//                        case .failure(let reason):
+//                            completeOnboardingFailure(reason)
+                        case .failure(_), .success:
+                            HomeView(weatherData: weatherData)
+                                .environmentObject(userDelegate)
                     }
                 case false:
                     switch viewState {
@@ -67,7 +63,12 @@ struct SplashScreen: View {
                 Task(priority: .background) {
                     print("SplashScreen - Fetch WeatherInfo - ")
                     print("Splash Screen - AuthStatus: \(locationManager.authorizationStatus) -")
-                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.longituteAndLatitude)
+                    for location in userDelegate.savedLocations {
+                        if let fetchedWeatherResults = try await weatherNetwork.fetchTenDayForecast(in: location.longituteAndLatitude) {
+                            weatherData.append(fetchedWeatherResults)
+                        }
+                    }
+//                    weatherInfo = try await weatherNetwork.fetchTenDayForecast(in: locationManager.longituteAndLatitude)
                 }
             }
         }
@@ -181,7 +182,12 @@ extension SplashScreen {
     
 }
 
+@available(iOS 17.0, *)
+extension SplashScreen {
+    
 
+    
+}
 
 
 

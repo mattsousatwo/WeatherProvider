@@ -23,7 +23,7 @@ struct FetchingDataView: View {
                 Spacer()
                 if let weatherInfo = weatherInfo {
                     WPNavigationLink(label: "Go to Home", theme: userDelegate.theme) {
-                        HomeView(weatherInfo: weatherInfo)
+                        HomeView(weatherData: [weatherInfo])
                             .environmentObject(userDelegate)
                     }
                 }
