@@ -28,7 +28,7 @@ struct DayForecast: Codable {
     let chanceOfRain: Int
     let willItSnow: Int
     let chanceOfSnow: Int
-    let condition: WeatherCondition
+    let condition: Condition
     let uvIndex: Double
     
     enum CodingKeys: String, CodingKey {

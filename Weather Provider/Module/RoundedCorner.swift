@@ -22,7 +22,3 @@ extension View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
 }
-
-#Preview {
-    RoundedCorner()
-}

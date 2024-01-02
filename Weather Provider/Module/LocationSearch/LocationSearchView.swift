@@ -27,23 +27,23 @@ struct LocationSearchView: View {
     
     
     var body: some View {
-        Background(userDelegate.theme) {
+        Background(displayType: .two, userDelegate.theme) {
             ZStack {
-                locationDisplay()
-                if isSearching == true {
-                    List {
-                        ForEach(searchResults, id: \.id) { result in
-                            searchListRow(location: result)
-                        }
-                        .listRowBackground(userDelegate.theme.weatherBackground)
-                    } // List
-                    .listStyle(.plain)
-                }
+                    locationDisplay()
+//                if isSearching == true {
+//                    List {
+//                        ForEach(searchResults, id: \.id) { result in
+//                            searchListRow(location: result)
+//                        }
+//                        .listRowBackground(userDelegate.theme.weatherBackground)
+//                    } // List
+//                    .listStyle(.plain)
+//                }
             }
         }
-        .searchable(text: $query, isPresented: $isSearching, placement: .navigationBarDrawer)
+//        .foregroundStyle(Color.red)
+//        .searchable(text: $query, isPresented: $isSearching, placement: .navigationBarDrawer)
         .onSubmit(of: .search) {
-            
             // MARK: DISMISS KEYBOARD - ISSUE: #WPTL-36
             print("Submit")
         }
@@ -53,6 +53,8 @@ struct LocationSearchView: View {
         }
         .onChange(of: query) { oldValue, newValue in
             if !newValue.isEmpty {
+                
+                isSearching = true
                 Task(priority: .background) {
                     do {
                         searchResults = try await weatherNetwork.searchAutoComplete(for: query)
@@ -61,7 +63,7 @@ struct LocationSearchView: View {
                     }
                 }
             } else {
-                
+                isSearching = false
             }
         }
     }
@@ -112,35 +114,87 @@ extension LocationSearchView {
             switch viewState {
                 case .loading, .success:
                     VStack {
-                        WPOTitle("New Location:",
-                                 color: userDelegate.theme.textColor)
-                        Spacer()
-                        
-                        TemporaryWeatherDisplay(weather: weatherData,
-                                                theme: userDelegate.theme)
-                        .padding(.horizontal, 20)
-                        Spacer()
-                        if viewState == .success {
-                            WPButton("Select",
-                                     theme: userDelegate.theme) {
-                                guard let searchLocation = searchLocation else { return }
-                                userDelegate.save(location: searchLocation.asLocation() )
-                                dismiss()
+                        VStack {
+                            HStack {
+                                TextField("Location", text: $query)
+                                    .padding()
+                                    .background(Color.black.opacity(0.05) )
+                                    .roundedCorner(12, corners: .allCorners)
+                                    .foregroundStyle(userDelegate.theme.textColor)
+                                
+                                if isSearching == true {
+                                    Button {
+                                        query = ""
+                                        isSearching = false
+                                    } label: {
+                                        WPText("Cancel", userDelegate.theme)
+                                    }
+                                    .animation(.easeIn, value: isSearching)
+                                }
+                                
                             }
-                            Spacer()
+                            Divider().background(userDelegate.theme.textColor)
+                        }.padding(.horizontal)
+                        
+                        ZStack {
+                            
+                            // Body
+                            VStack {
+                                WPOTitle("New Location:",
+                                         color: userDelegate.theme.textColor)
+                                .shadow(radius: 2, x: 0, y: 1)
+                                
+                                Spacer()
+                                
+                                TemporaryWeatherDisplay(weather: weatherData,
+                                                        theme: userDelegate.theme)
+                                .shadow(radius: 2, x: 0, y: 1)
+                                .padding(.horizontal, 20)
+                                Spacer()
+                                if viewState == .success {
+                                    WPButton("Select",
+                                             theme: userDelegate.theme) {
+                                        guard let searchLocation = searchLocation else { return }
+                                        userDelegate.save(location: searchLocation.asLocation() )
+                                        dismiss()
+                                    }
+                                             .shadow(radius: 2, x: 0, y: 1)
+                                    Spacer()
+                                }
+                            }.padding()
+                            
+                            
+                            // Auto Complete List
+                            if isSearching == true {
+                                List {
+                                    ForEach(searchResults, id: \.id) { result in
+                                        searchListRow(location: result)
+                                    }
+                                    .listRowBackground(userDelegate.theme.weatherBackground)
+                                } // List
+                                .listStyle(.plain)
+                                .shadow(radius: 2, x: 0, y: 1)
+                                .animation(.easeInOut, value: isSearching)
+                            }
+                            
+                            
+                            
+                            
+                            
                         }
-                    }.padding()
+                        
+                    }
                     
                 case .failure(_):
                     WPText("Failure", userDelegate.theme)
                     
             }
-            if searchResults.count != 0 && isSearching == true  {
-                RoundedRectangle(cornerRadius: 0)
-                    .edgesIgnoringSafeArea([.bottom, .horizontal])
-                    .foregroundStyle(.black)
-                    .opacity(0.20)
-            }
+//            if searchResults.count != 0 && isSearching == true  {
+//                RoundedRectangle(cornerRadius: 0)
+//                    .edgesIgnoringSafeArea([.bottom, .horizontal])
+//                    .foregroundStyle(.black)
+//                    .opacity(0.20)
+//            }
         }
         .onChange(of: viewState) { oldValue, newValue in
             switch viewState {

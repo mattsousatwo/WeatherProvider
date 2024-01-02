@@ -18,7 +18,7 @@ public class UserDelegate: LoadingClass, ObservableObject {
     
     @Published var didCompleteOnboarding: Bool = false
     @Published var savedLocations: [Location] = []
-    @Published var theme: Theme = ThemeList.one.theme
+    @Published var theme: Theme = ThemeList.four.theme
     @Published var tempMeasurement: TemperatureMeasurement = .fahrenheit
     @Published var sendAlertsIsActive: Bool = false
 

@@ -14,15 +14,18 @@ struct Degree {
     let asCGFloat: CGFloat
     
     init(_ inputValue: Int) {
+//        let rounded = inputValue.rounded()
         self.asString = "\(inputValue)" + "°"
         self.asInt = inputValue
         self.asCGFloat = CGFloat(inputValue)
     }
     
     init(_ inputValue: Double) {
-        self.asString = "\(inputValue)" + "°"
-        self.asInt = Int(inputValue)
-        self.asCGFloat = CGFloat(inputValue)
+        let rounded = inputValue.rounded()
+        let roundedWithoutDecimal = String(format: "%.0f", rounded)
+        self.asString = "\(roundedWithoutDecimal)" + "°"
+        self.asInt = Int(rounded)
+        self.asCGFloat = CGFloat(rounded)
     }
 
 }

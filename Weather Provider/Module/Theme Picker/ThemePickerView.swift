@@ -72,6 +72,7 @@ struct ThemePickerView: View {
             Spacer()
             WPOTitle(currentTheme.name, color: currentTheme.textColor)
             OnboardingWeatherDisplayView(theme: $currentTheme)
+                .shadow(radius: 2, x: 0, y: 2)
                 .padding()
             Spacer()
             switch userDelegate.didCompleteOnboarding {
@@ -80,7 +81,7 @@ struct ThemePickerView: View {
                              theme: currentTheme) {
                         userDelegate.save(theme: currentTheme)
                         dismiss()
-                    }
+                    }.shadow(radius: 2, x: 0, y: 2)
                 case false:
                     WPNavigationLink(label: "Select Theme", theme: currentTheme) {
                         EnableLocationView()
@@ -90,7 +91,7 @@ struct ThemePickerView: View {
                                 userDelegate.save(theme: currentTheme)
                                 print("Theme Selected: \(currentTheme)")
                             }
-                    }
+                    }.shadow(radius: 2, x: 0, y: 2)
             }
             Spacer()
         }

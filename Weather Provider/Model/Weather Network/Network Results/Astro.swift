@@ -8,7 +8,9 @@
 import Foundation
 
 struct Astro: Codable {
-    var sunrise, sunset, moonrise, moonset, moonPhase: String
+    var sunrise, sunset, moonrise, moonset: String
+    /// Phases - New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter, Waning Crescent
+    var moonPhase: String
     var isMoonUp, isSunUp, moonIllumination: Int
     
     enum CodingKeys: String, CodingKey {

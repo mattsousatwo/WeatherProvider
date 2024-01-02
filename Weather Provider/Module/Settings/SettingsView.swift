@@ -15,41 +15,63 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationStack {
-            Background(userDelegate.theme) {
+            Background(displayType: .two, userDelegate.theme) {
                 
                 VStack(alignment: .trailing) {
                     header()
                     List {
                         
-                        NavigationLink {
-                            ThemePickerView()
-                                .environmentObject(userDelegate)
-                        } label: {
-                            WPText("Select Theme", userDelegate.theme)
-                                .padding()
-                                
-                        }
-                        .listRowBackground(userDelegate.theme.weatherBackground)
-
-                        
-                        WPText("Select Theme", userDelegate.theme)
+                        Section {
+                            NavigationLink {
+                                ThemePickerView()
+                                    .environmentObject(userDelegate)
+                            } label: {
+                                WPText("Select a Theme", userDelegate.theme)
+                                    .padding()
+                            }
                             .listRowBackground(userDelegate.theme.weatherBackground)
-                            .padding()
-                        
-                        WPText("Saved Locations", userDelegate.theme)
-                            .listRowBackground(userDelegate.theme.weatherBackground)
-                            .padding()
-                        
-                        WPText("Temperature Measurement", userDelegate.theme)
-                            .listRowBackground(userDelegate.theme.weatherBackground)
-                            .padding()
                             
+                            NavigationLink {
+                                Text("Saved Locations")
+                                    .environmentObject(userDelegate)
+                            } label: {
+                                WPText("Saved Locations (Not Setup)", userDelegate.theme)
+                                    .padding()
+                            }
+                            .listRowBackground(userDelegate.theme.weatherBackground)
+                            
+                            NavigationLink {
+                                Text("Weather Highlights")
+                                    .environmentObject(userDelegate)
+                            } label: {
+                                WPText("Weather Highlights (Not Setup)", userDelegate.theme)
+                                    .padding()
+                            }
+                            .listRowBackground(userDelegate.theme.weatherBackground)
+                        }
+                        
+                        
+                        Section {
+                            ToggleRow("Multi-Color Symbols") {
+                                
+                            }
+                            .listRowBackground(userDelegate.theme.weatherBackground)
+                            
+                            ToggleRow("Temp. Measurement") {
+                                
+                            }
+                            .listRowBackground(userDelegate.theme.weatherBackground)
+                            
+                            ToggleRow("Display Past Hours") {
+                                
+                            }
+                            .listRowBackground(userDelegate.theme.weatherBackground)
+                            
+                        }
                     }
-                    
-                    
-//                    .background(userDelegate.theme.backgroundColor)
-                    
+                    .shadow(radius: 2, x: 0, y: 2)
                     .scrollContentBackground(.hidden)
+                    .tint(userDelegate.theme.weatherBackground)
                     Spacer()
                 }
                 

@@ -19,7 +19,7 @@ struct UserDelegateAttribute: Codable, CustomStringConvertible {
     init(id: String,
          didCompleteOnboarding: Bool = false,
          savedLocations: [Location] = [],
-         theme: String = ThemeList.one.theme.name,
+         theme: String = ThemeList.four.theme.name,
          temperatureMeasurement: TemperatureMeasurement = .fahrenheit,
          sendAlertsIsActive: Bool = false) {
         self.id = id

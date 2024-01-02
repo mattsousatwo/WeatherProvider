@@ -25,7 +25,7 @@ struct CurrentWeather: Codable, Equatable {
     let temperatureCelsius: Double
     let temperatureFahrenheit: Double
     let isDay: Int
-    let condition: WeatherCondition
+    let condition: Condition
     let windMph: Double
     let windKph: Double
     let windDegree: Int
