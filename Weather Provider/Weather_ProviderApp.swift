@@ -16,6 +16,9 @@ struct Weather_ProviderApp: App {
         WindowGroup {
             SplashScreen()
                 .environmentObject(userDelegate)
+                .onAppear {
+                    print("Hello World")
+                }
         }
     }
 }

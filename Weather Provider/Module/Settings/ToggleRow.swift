@@ -11,21 +11,14 @@ struct ToggleRow: View {
     @EnvironmentObject var userDelegate: UserDelegate
     
     let title: String
+    @State private var toggle: Bool = false
     let action: () -> Void
-    @State private var toggle: Bool = true
     
     init(_ title: String, action: @escaping () -> Void) {
         self.title = title
         self.action = action
     }
     
-    // MARK: For Preview Purposes Only
-    init(toggle: Bool, action: @escaping () -> Void) {
-        self.title = "title"
-        self.toggle = toggle
-        self.action = action
-    }
-
     var body: some View {
         
         HStack {
@@ -41,19 +34,19 @@ struct ToggleRow: View {
     
 }
 
-#Preview {
-    let theme = UserDelegate()
-    theme.theme = ThemeList.four.theme
-    
-    return Background(displayType: .one, theme.theme, content: {
-        VStack {
-            ToggleRow(toggle: true) {
-                
-            }
-            ToggleRow(toggle: false) {
-                
-            }
-        }
-    })
-    .environmentObject(theme )
-}
+//#Preview {
+//    let theme = UserDelegate()
+//    theme.theme = ThemeList.four.theme
+//    
+//    return Background(displayType: .one, theme.theme, content: {
+//        VStack {
+//            ToggleRow(toggle: true) {
+//                
+//            }
+//            ToggleRow(toggle: false) {
+//                
+//            }
+//        }
+//    })
+//    .environmentObject(theme )
+//}

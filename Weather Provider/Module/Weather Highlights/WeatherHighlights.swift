@@ -9,18 +9,26 @@ import SwiftUI
 
 struct WeatherHighlights: View {
     @EnvironmentObject var userDelegate: UserDelegate
+    @Binding var displayDetails: Bool
     
-    let weather: WeatherInfo 
+    let weather: WeatherInfo
     private let imageSize: CGFloat = 40
+    
+    var savedHighlightCount: Int {
+        return userDelegate.weatherHighlights.count
+    }
     
     var body: some View {
         HStack {
             Spacer()
-            WeatherHighlight(type: .wind(weather: weather), order: .first, weather: weather)
+            WeatherHighlight(displayDetails: $displayDetails, type: savedHighlightCount != 0 ? userDelegate.weatherHighlights[0] : .percipitation(weather: weather), order: .first, weather: weather)
+                .environmentObject(userDelegate)
             Spacer()
-            WeatherHighlight(type: .moon(weather: weather), order: .second, weather: weather)
+            WeatherHighlight(displayDetails: $displayDetails, type: savedHighlightCount != 0 ? userDelegate.weatherHighlights[1] : .airQuality(weather: weather), order: .second, weather: weather)
+                .environmentObject(userDelegate)
             Spacer()
-            WeatherHighlight(type: .uv(weather: weather), order: .third, weather: weather)
+            WeatherHighlight(displayDetails: $displayDetails, type: savedHighlightCount != 0 ? userDelegate.weatherHighlights[2] : .sun(weather: weather), order: .third, weather: weather)
+                .environmentObject(userDelegate)
             Spacer()
         }
         .padding(.vertical)

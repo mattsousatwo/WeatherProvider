@@ -12,6 +12,7 @@ struct LocationSearchView: View {
 
     @EnvironmentObject var userDelegate: UserDelegate
     @Environment(\.dismiss) var dismiss
+    @Binding var didChange: Bool
     
     @State var searchLocation: AutoCompleteLocation? = nil  // location
     @State var weatherData: WeatherInfo? = nil              // weather
@@ -23,8 +24,6 @@ struct LocationSearchView: View {
     @State var query: String = ""
     @State var isSearching: Bool = false
     @State var searchResults: [AutoCompleteLocation] = []
-    
-    
     
     var body: some View {
         Background(displayType: .two, userDelegate.theme) {
@@ -72,7 +71,7 @@ struct LocationSearchView: View {
 
 @available(iOS 17.0, *)
 #Preview {
-    LocationSearchView(isSearching: true)
+    LocationSearchView(didChange: .constant(false))
         .environmentObject(UserDelegate() )
 }
 
@@ -156,7 +155,8 @@ extension LocationSearchView {
                                              theme: userDelegate.theme) {
                                         guard let searchLocation = searchLocation else { return }
                                         userDelegate.save(location: searchLocation.asLocation() )
-                                        dismiss()
+                                         dismiss()
+                                        didChange = true
                                     }
                                              .shadow(radius: 2, x: 0, y: 1)
                                     Spacer()

@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum HighlightType: Equatable {
+enum HighlightType: Equatable, CaseIterable {
+    static var allCases: [HighlightType] = [.airQuality(weather: nil), .sun(weather: nil), .moon(weather: nil), .percipitation(weather: nil), .uv(weather: nil), .wind(weather: nil), .humidity(weather: nil), .feelsLike(weather: nil)]
+    
     case airQuality(weather: WeatherInfo?)
     case sun(weather: WeatherInfo?)
     case moon(weather: WeatherInfo?)
@@ -113,6 +115,28 @@ enum HighlightType: Equatable {
                 return 40 
         }
     }
+    
+    var name: String {
+        switch self {
+            case .airQuality:
+                return "Air Quality"
+            case .sun:
+                return "Sun"
+            case .moon:
+                return "Moon"
+            case .percipitation:
+                return "Percipitation"
+            case .uv:
+                return "UV"
+            case .wind:
+                return "Wind"
+            case .humidity:
+                return "Humidity"
+            case .feelsLike:
+                return "Feels Like"
+        }
+    }
+    
     
     var title: String {
         switch self {
@@ -223,9 +247,9 @@ enum HighlightType: Equatable {
                 return titleString
             case .uv(let weather):
                 if let index = weather?.currentWeather.uvIndex {
-                    return "UV Index: \(index)"
+                    return "\(index)"
                 }
-                return "UV Index: 0"
+                return "0"
             case .wind(let weather):
                 if let wind = weather?.currentWeather.windMph,
                    let direction = weather?.currentWeather.windDirection {
@@ -234,16 +258,30 @@ enum HighlightType: Equatable {
                 return "0 MPH"
             case .humidity(let weather):
                 if let humidity = weather?.forecast.forecastday.first?.day.avghumidity {
-                    return "\(humidity) %"
+                    return "\(humidity)%"
                 }
-                return "0 %"
+                return "0%"
             case .feelsLike(let weather):
                 if let feelsLike = weather?.currentWeather.feelsLikeFahrenheit {
                     return "\(Degree(feelsLike).asString)"
                 }
-                return "Feels Like: "
+                
+                if weather != nil {
+                    print("Weather is not Nil")
+                } else {
+                    print("Weather is Nil")
+                }
+                
+                if weather?.currentWeather != nil {
+                    print("Current Weather is not Nil ")
+                } else {
+                    print("Current Weather is Nil")
+                }
+                
+                print("feels like \(weather?.currentWeather.feelsLikeFahrenheit)")
+                
+                return Degree(0).asString
         }
     }
     
-    
-    }
+}

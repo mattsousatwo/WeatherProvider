@@ -12,10 +12,13 @@ import CoreLocation
 @available(iOS 17.0, *)
 struct HomeView: View {
     @EnvironmentObject var userDelegate: UserDelegate
+    @State private var displayWeatherDetails: Bool = false
+    @State private var savedLocationsDidChange: Bool = false
     
     @StateObject var locationManager = LocationManager()
+    let weatherNetwork = WeatherNetwork()
     
-    var weatherData: [WeatherInfo] = []
+    @State var weatherData: [WeatherInfo] = []
     let currentDay = Date().dateComponents
     let hoursMax = 31
     
@@ -30,13 +33,13 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             Background(userDelegate.theme) {
-                TabView(selection: $locationIndex) {
-                    ForEach(0..<weatherData.count,
-                            id: \.self) { index in
-                        tabViewBody(weatherData[index])
-                            .tag(index)
-                    }
-                }
+//                tabView()
+                HomeTabView(selectedTab: $locationIndex,
+                            weatherData: $weatherData,
+                            viewState: $viewState,
+                            content: {
+                    viewStructure(weatherData[locationIndex])
+                })
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
@@ -48,8 +51,6 @@ struct HomeView: View {
                         locationSearchButton()
                     }
                 }
-
-
             }
         }
         .tint(userDelegate.theme.accentColor)
@@ -75,38 +76,65 @@ struct HomeView: View {
             switch locationManager.authorizationStatus {
                 case .authorized, .authorizedAlways, .authorizedWhenInUse:
                     // Location has been enabled
-                    viewState = .success
+                    viewState = .loading
                 default:
                     break
             }
             
-            
         }
-        
-        
-        
-        
+        .onChange(of: savedLocationsDidChange) { oldValue, newValue in
+            print("Change Detected")
+            viewState = .loading
+            savedLocationsDidChange = false
+        }
+        .onChange(of: viewState) { value in
+            if viewState == .loading {
+                
+                weatherData.removeAll()
+                Task(priority: .background) {
+                    print("1")
+                    
+                    if userDelegate.savedLocations.isEmpty == false {
+                        for location in userDelegate.savedLocations {
+                            if let fetchedResults = try await weatherNetwork.fetchTenDayForecast(in: location.longituteAndLatitude) {
+                                print("2")
+                                weatherData.append(fetchedResults)
+                            }
+                        }
+                        print("3")
+                        viewState = .success
+                    } else {
+                        
+                        // Add location to saved locations
+                        // MARK: -
+                        
+                        
+                        
+                        if let fetchedResults = try await weatherNetwork.fetchTenDayForecast(in: locationManager.locationManager.longituteAndLatitude) {
+                            weatherData.append(fetchedResults)
+                            
+                            // Check if saved locations has location
+                            // Add to array
+                            
+                            
+                        }
+                        
+                        
+                        
+                    }
+                }
+            }
+        }
+        .onChange(of: weatherData) { _ in
+            print("weatherData change -- \(weatherData.count)")
+        }
     }
-
+    
 }
 
 
 @available(iOS 17.0, *)
 extension HomeView {
-    
-    func tabViewBody(_ weather: WeatherInfo) -> some View {
-        ZStack {
-            switch viewState {
-                case .loading:
-                    ProgressView()
-                case .failure(let reason):
-                    Text("Failure - \(reason)")
-                case .success:
-                    viewStructure(weather)
-            }
-        }
-
-    }
     
     func buttonRow() -> some View {
         HStack {
@@ -121,7 +149,7 @@ extension HomeView {
 
     func locationSearchButton() -> some View {
         NavigationLink {
-            LocationSearchView()
+            LocationSearchView(didChange: $savedLocationsDidChange)
                 .environmentObject(userDelegate)
         } label: {
             Image(systemName: "magnifyingglass")
@@ -144,42 +172,62 @@ extension HomeView {
         }
     }
 
-    
+  
     
     func viewStructure(_ weather: WeatherInfo) -> some View {
-           return ScrollView(.vertical) {
+        return ZStack(alignment: .center) {
+            ScrollView(.vertical) {
                 VStack {
                     if viewState == .success {
                         mainWeatherDisplay(weather)
-
-                        WeatherHighlights(weather: weather)
-                            .environmentObject(userDelegate)
                         
+                        if let w = weatherData.first {
+                            WeatherHighlights(displayDetails: $displayWeatherDetails, weather: w)
+                                .environmentObject(userDelegate)
+                        }
                         let hourCollection = configureHourly(weather: weather)
-                        
-                            ScrollView(.horizontal) {
-                                HStack {
-                                    ForEach(0..<hourCollection.count, id: \.self) { index in
-                                            hourlyForecast(for: hourCollection[index],
-                                                           index: index,
-                                                           theme: userDelegate.theme)
-                                    }
-                                    .padding(.horizontal, 5)
+        
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(0..<hourCollection.count, id: \.self) { index in
+                                    hourlyForecast(for: hourCollection[index],
+                                                   index: index,
+                                                   theme: userDelegate.theme)
                                 }
-                                .padding(.horizontal, 10)
+                                .padding(.horizontal, 5)
                             }
-                            .scrollIndicators(.hidden)
+                            .padding(.horizontal, 10)
+                        }
+                        .scrollDisabled(displayWeatherDetails == true ? true: false  )
+                        .scrollIndicators(.hidden)
                         tenDayForecast()
                     }
                     Spacer()
                 }
             }
-        
+            .scrollDisabled(displayWeatherDetails == true ? true: false  )
+            if displayWeatherDetails == true {
+
+                weatherDetails()
+            }
+            
+        }
         .onAppear {
             userDelegate.userDidCompleteOnboarding()
         }
         
         
+    }
+    
+    func weatherDetails() -> some View {
+        RoundedRectangle(cornerRadius: 12)
+            .foregroundStyle(userDelegate.theme.weatherBackground)
+            .frame(height: (UIScreen.main.bounds.height * 0.60) )
+            .padding(.horizontal)
+            .shadow(radius: 2)
+            .onTapGesture {
+                displayWeatherDetails.toggle()
+            }
     }
     
     func configureHourly(weather: WeatherInfo) -> [Hour] {
@@ -236,8 +284,6 @@ extension HomeView {
         }
     }
     
-//    r
-    
     func hourlyForecast(for day: Hour, index: Int, theme: Theme) -> some View {
         var title: String = "Time"
         var isBold: Bool = false
@@ -289,13 +335,14 @@ extension HomeView {
     
     func tenDayForecast() -> some View {
         TenDayTemperatureView(weatherInfo: weatherData[locationIndex])
+            .redacted(reason: viewState != .success ? .placeholder : [])
     }
 
     
 }
 
 
-
+//
 
 
 @available(iOS 17.0, *)

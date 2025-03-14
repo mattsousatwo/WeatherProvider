@@ -10,6 +10,7 @@ import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
+    let geocoder = CLGeocoder()
     @Published var location: CLLocationCoordinate2D?
     @Published var authorizationStatus: CLAuthorizationStatus?
     
@@ -58,7 +59,43 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")
     }
-
+    
+    
+    /// Fetch Location from Latitude/Longitude coordinates 
+    func getLocationFrom(lat: String, long: String) -> Location? {
+        let location = CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
+        
+        // Create an object outside of the reverse geo search closure to capture the Location
+        
+        var name: String = ""
+        var region: String  = ""
+        var country: String  = ""
+        
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            guard let error = error else {
+                print("Error: \(error?.localizedDescription ?? "Nil")")
+                return
+            }
+            guard let placemarks = placemarks, let placemark = placemarks.first else {
+                print("No Placemarks Found")
+                return
+            }
+            if let placeName = placemark.name,
+               let placeRegion = placemark.region?.identifier,
+               let placeCountry = placemark.country {
+                name = placeName
+                region = placeRegion
+                country = placeCountry
+            }
+        }
+        return Location(name: name,
+                        region: region,
+                        country: country,
+                        latitude: Double(lat)!,
+                        longitude: Double(long)!)
+        
+    }
+        
 }
 
 

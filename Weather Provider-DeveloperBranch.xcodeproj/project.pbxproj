@@ -59,10 +59,13 @@
 		608FFF692B294E9D00FB1296 /* WeatherSplashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF682B294E9D00FB1296 /* WeatherSplashAnimation.swift */; };
 		608FFF6C2B2A3A8100FB1296 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */; };
 		608FFF6F2B2BA33F00FB1296 /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FFF6E2B2BA33F00FB1296 /* LocationSearchView.swift */; };
+		609151552D7F61E3000F0C67 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609151542D7F61D9000F0C67 /* HomeTabView.swift */; };
 		60955DD12B32963600612308 /* WeatherHighlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60955DD02B32963600612308 /* WeatherHighlights.swift */; };
 		60955DD32B33F4A800612308 /* PageNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60955DD22B33F4A800612308 /* PageNavigationView.swift */; };
 		60955DD52B35F18A00612308 /* SavedLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60955DD42B35F18A00612308 /* SavedLocations.swift */; };
 		60955DD72B39363700612308 /* ToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60955DD62B39363700612308 /* ToggleRow.swift */; };
+		60BD78F42B462E3B00930CE0 /* WeatherHighlightsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD78F32B462E3B00930CE0 /* WeatherHighlightsSettings.swift */; };
+		60BD78F62B487DD500930CE0 /* WPEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BD78F52B487DD500930CE0 /* WPEditButton.swift */; };
 		60CCB2BD2A30427300D6BE68 /* Degree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CCB2BC2A30427300D6BE68 /* Degree.swift */; };
 		60DE8E7F2A1C3A76002BD9D8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */; };
 		60DE8E812A1C3B33002BD9D8 /* EnableLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */; };
@@ -129,10 +132,13 @@
 		608FFF682B294E9D00FB1296 /* WeatherSplashAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSplashAnimation.swift; sourceTree = "<group>"; };
 		608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		608FFF6E2B2BA33F00FB1296 /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
+		609151542D7F61D9000F0C67 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		60955DD02B32963600612308 /* WeatherHighlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHighlights.swift; sourceTree = "<group>"; };
 		60955DD22B33F4A800612308 /* PageNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationView.swift; sourceTree = "<group>"; };
 		60955DD42B35F18A00612308 /* SavedLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocations.swift; sourceTree = "<group>"; };
 		60955DD62B39363700612308 /* ToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
+		60BD78F32B462E3B00930CE0 /* WeatherHighlightsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHighlightsSettings.swift; sourceTree = "<group>"; };
+		60BD78F52B487DD500930CE0 /* WPEditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPEditButton.swift; sourceTree = "<group>"; };
 		60CCB2BC2A30427300D6BE68 /* Degree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Degree.swift; sourceTree = "<group>"; };
 		60DE8E7E2A1C3A76002BD9D8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		60DE8E802A1C3B33002BD9D8 /* EnableLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationView.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 		60248C552A153B2E008470E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				609151542D7F61D9000F0C67 /* HomeTabView.swift */,
 				60EB63C92A3434DB00CC2F17 /* Temperature Bar */,
 				60EB63C32A340B3A00CC2F17 /* Gauge Row */,
 				60248C562A153B3D008470E9 /* HomeView.swift */,
@@ -308,6 +315,7 @@
 		608FFF6A2B2A3A5500FB1296 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				60BD78F32B462E3B00930CE0 /* WeatherHighlightsSettings.swift */,
 				608FFF6B2B2A3A8100FB1296 /* SettingsView.swift */,
 				60955DD42B35F18A00612308 /* SavedLocations.swift */,
 				60955DD62B39363700612308 /* ToggleRow.swift */,
@@ -444,6 +452,7 @@
 				607A5EF62A16B8FD00910594 /* WPButton.swift */,
 				6029FAAE2A17FE2B00D901B8 /* WPOTitle.swift */,
 				6029FAB02A18031600D901B8 /* WPNavigationLink.swift */,
+				60BD78F52B487DD500930CE0 /* WPEditButton.swift */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -476,7 +485,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					60F272852A0C998E0025711F = {
 						CreatedOnToolsVersion = 14.3;
@@ -529,6 +538,7 @@
 				604352CD2B30CDEC0049115E /* WeatherInfo.swift in Sources */,
 				60EB63D32A35834E00CC2F17 /* TenDayTemperatureView.swift in Sources */,
 				604352B32B30CCA90049115E /* WindDirection.swift in Sources */,
+				609151552D7F61E3000F0C67 /* HomeTabView.swift in Sources */,
 				608FFF6F2B2BA33F00FB1296 /* LocationSearchView.swift in Sources */,
 				6068C1302B2E230A003CD275 /* TemporaryWeatherDisplay.swift in Sources */,
 				607A5EF12A16A29E00910594 /* OnboardingView.swift in Sources */,
@@ -556,6 +566,7 @@
 				60EB63C52A340B5400CC2F17 /* GuageRow.swift in Sources */,
 				6029FAAB2A17FBDA00D901B8 /* ThemePickerView.swift in Sources */,
 				604352B72B30CCED0049115E /* ForecastDay.swift in Sources */,
+				60BD78F62B487DD500930CE0 /* WPEditButton.swift in Sources */,
 				60248C572A153B3D008470E9 /* HomeView.swift in Sources */,
 				60955DD12B32963600612308 /* WeatherHighlights.swift in Sources */,
 				604014DE2B41120900324A9D /* HighlightType.swift in Sources */,
@@ -570,6 +581,7 @@
 				604014DC2B3E961F00324A9D /* WeatherHighlight.swift in Sources */,
 				607A5EEE2A168E6000910594 /* WPViewModel.swift in Sources */,
 				607A5EF72A16B8FD00910594 /* WPButton.swift in Sources */,
+				60BD78F42B462E3B00930CE0 /* WeatherHighlightsSettings.swift in Sources */,
 				607A5EEB2A168DFC00910594 /* SplashScreenViewModel.swift in Sources */,
 				60544BB02B22363E004782FB /* LoadingClass.swift in Sources */,
 				60CCB2BD2A30427300D6BE68 /* Degree.swift in Sources */,
@@ -625,6 +637,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -685,6 +698,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

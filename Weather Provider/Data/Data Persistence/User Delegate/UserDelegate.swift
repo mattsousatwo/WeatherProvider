@@ -21,6 +21,9 @@ public class UserDelegate: LoadingClass, ObservableObject {
     @Published var theme: Theme = ThemeList.four.theme
     @Published var tempMeasurement: TemperatureMeasurement = .fahrenheit
     @Published var sendAlertsIsActive: Bool = false
+    @Published var weatherHighlights: [HighlightType] = [.percipitation(weather: nil), .feelsLike(weather: nil), .sun(weather: nil)]
+    @Published var displayPastHours: Bool = false
+    @Published var multiColorSymbols: Bool = false
 
     override init() {
         super.init()
@@ -65,6 +68,9 @@ extension UserDelegate {
                 }
                 self.tempMeasurement = userAttributes.temperatureMeasurement
                 self.sendAlertsIsActive = userAttributes.sendAlertsIsActive
+                self.weatherHighlights = matchHighlights(userAttributes.highlights)
+                self.displayPastHours = userAttributes.displaysPastHours
+                self.multiColorSymbols = userAttributes.multiColorSymbols
                 
                 self.delegateFileIsLoaded = true
                 
@@ -155,6 +161,24 @@ extension UserDelegate {
         }
     }
     
+    private func updateTempMeasurement(_ temp: TemperatureMeasurement ) {
+        tempMeasurement = temp
+        userAttributes?.temperatureMeasurement = tempMeasurement
+        print("tm: \(tempMeasurement) = t: \(temp)")
+        saveUserDelegate()
+        print(userAttributes ?? "nil")
+    }
+    
+    func toggleTempMeasurement(_ toggle: Bool) {
+        switch toggle {
+            case true:
+                updateTempMeasurement(.celsius)
+            case false:
+                updateTempMeasurement(.fahrenheit)
+        }
+        saveUserDelegate()
+    }
+    
     /// Match the saved theme name to the existing theme list
     private func matchTheme(name: String) -> Theme? {
         print(#function)
@@ -166,6 +190,41 @@ extension UserDelegate {
         }
         print("Missing Saved Theme")
         return nil
+    }
+    
+    private func matchHighlights(_ savedHighlights: [Int]) -> [HighlightType] {
+        var matchingHighlights: [HighlightType] = []
+        for highlight in HighlightType.allCases {
+            if savedHighlights.contains(highlight.id) {
+                matchingHighlights.append(highlight)
+            }
+        }
+        return matchingHighlights
+    }
+    
+    func toggleDisplayPastHours() {
+        displayPastHours.toggle()
+        userAttributes?.displaysPastHours = displayPastHours
+        saveUserDelegate()
+    }
+    
+    func toggleMultiColorSymbols() {
+        multiColorSymbols.toggle()
+        userAttributes?.multiColorSymbols = multiColorSymbols
+        saveUserDelegate()
+    }
+    
+    func saveHighlights() {
+        let highlightIDs = weatherHighlights.map { $0.id }
+        userAttributes?.highlights = highlightIDs
+        saveUserDelegate()
+    }
+    
+    /// Delete User Saved Location at IndexSet 
+    func deleteLocation(at index: IndexSet) {
+        savedLocations.remove(atOffsets: index)
+        userAttributes?.savedLocations.remove(atOffsets: index)
+        saveUserDelegate()
     }
     
 }

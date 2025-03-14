@@ -18,38 +18,6 @@
             endingLineNumber = "41"
             landmarkName = "daysName"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "85193EA8-6D57-41B8-B7B3-F07E7511B19E - 4e3a4e8921fac19d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather_Provider.TemperatureBar.daysName.getter : Swift.String"
-                  moduleName = "Weather Provider"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/Temperature%20Bar/TemperatureBar.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "980">
-               </Location>
-               <Location
-                  uuid = "85193EA8-6D57-41B8-B7B3-F07E7511B19E - 4e3a4e8921fac19d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather_Provider.TemperatureBar.daysName.getter : Swift.String"
-                  moduleName = "Weather Provider"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Home/Temperature%20Bar/TemperatureBar.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "920">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,57 +30,10 @@
             filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "loadUserDelegateFile()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de1774555e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
-                  moduleName = "Weather Provider"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de177455526"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
-                  moduleName = "Weather Provider"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "6E854BC5-A9DC-4326-817F-BE23112A697F - 83be4de177455564"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather_Provider.UserDelegate.loadUserDelegateFile() -&gt; ()"
-                  moduleName = "Weather Provider"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Data/Data%20Persistence/User%20Delegate/UserDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "108">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -125,8 +46,8 @@
             filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "loadUserDelegateFile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,8 +62,8 @@
             filePath = "Weather Provider/Data/Data Persistence/User Delegate/UserDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "loadUserDelegateFile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,13 +89,90 @@
             <Locations>
                <Location
                   uuid = "D8F980D9-9196-4F73-8F40-F1F3B33199CB - 6b2a6ff60c6dfa83"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "CGPostError"
                   moduleName = "CoreGraphics"
+                  usesParentBreakpointCondition = "Yes">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2A80206-22EE-476C-BC0A-9CCF34522B37"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Module/Weather Highlights/WeatherHighlights.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "WeatherHighlights"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED21903E-9B7C-40EB-81F6-094DD6A4AA0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Module/Theme Picker/ThemePickerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "pageView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2614B89E-7DD9-404A-ADB2-BF1CF7396ED1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather Provider/Module/Theme Picker/ThemePickerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "pageView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2614B89E-7DD9-404A-ADB2-BF1CF7396ED1 - b9f4d49601cc1399"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Weather_Provider.WPOTitle, SwiftUI.Spacer, Weather_Provider.WPOTitle, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt; in Weather_Provider.ThemePickerView.pageView() -&gt; some"
+                  moduleName = "Weather Provider.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  offsetFromSymbolStart = "0">
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Theme%20Picker/ThemePickerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86">
+               </Location>
+               <Location
+                  uuid = "2614B89E-7DD9-404A-ADB2-BF1CF7396ED1 - c6fb262d9c6ef104"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(Weather_Provider.WPOTitle, SwiftUI.Spacer, Weather_Provider.WPOTitle, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.shadow(color: SwiftUI.Color, radius: CoreGraphics.CGFloat, x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt; in Weather_Provider.ThemePickerView.pageView() -&gt; some"
+                  moduleName = "Weather Provider.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matthewsousa/XCode%20DB%20-%20MSB/WeatherProvider/Weather%20Provider/Module/Theme%20Picker/ThemePickerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87">
                </Location>
             </Locations>
          </BreakpointContent>

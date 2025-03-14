@@ -14,7 +14,7 @@ struct Day: Codable {
     var totalsnowCM, avgvisKM, avgvisMiles, avghumidity: Double
     var dailyWillItRain, dailyChanceOfRain, dailyWillItSnow, dailyChanceOfSnow: Int
     var condition: Condition
-    var uv: Int
+    var uv: Double
     
     enum CodingKeys: String, CodingKey {
         case maxtempC = "maxtemp_c"

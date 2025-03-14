@@ -9,34 +9,36 @@ import SwiftUI
 
 struct WeatherHighlight: View {
     @EnvironmentObject var userDelegate: UserDelegate
+    @Binding var displayDetails: Bool
     
     private let imageSize: CGFloat = 40
     private let frameHeight: CGFloat = 200
     private let frameWidth: CGFloat = (UIScreen.main.bounds.width / 3) * 0.83
+    
     let type: HighlightType
     let order: Order
     let weather: WeatherInfo
     
     var body: some View {
-//        NavigationLink {
-//            Text("Hello World - \(weather.forecast.forecastday.count)")
-//        } label: {
-//            switch order {
-//                case .first:
-//                    one()
-//                case .second:
-//                    two()
-//                case .third:
-//                    three()
-//            }
-//        }
+        //        NavigationLink {
+        //            Text("Hello World - \(weather.forecast.forecastday.count)")
+        //        } label: {
+        //            switch order {
+        //                case .first:
+        //                    one()
+        //                case .second:
+        //                    two()
+        //                case .third:
+        //                    three()
+        //            }
+        //        }
         
         
         
         Button {
-            
+            displayDetails.toggle()
         } label: {
-            HighlightBackground(order: order,
+            HighlightBackground(order: order, userDelegate.theme,
                                 label: {
                 Text(type.title)
             }, image: {
@@ -209,22 +211,22 @@ struct WeatherHighlight: View {
     return Background(displayType: .one, theme.theme, content: {
         VStack {
             HStack {
-                WeatherHighlight(type: .airQuality(weather: weather), order: .first, weather: weather)
-                WeatherHighlight(type: .airQuality(weather: weather), order: .second, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .airQuality(weather: weather), order: .first, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .airQuality(weather: weather), order: .second, weather: weather)
                     .padding()
-                WeatherHighlight(type: .airQuality(weather: weather), order: .third, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .airQuality(weather: weather), order: .third, weather: weather)
             }
             HStack {
-                WeatherHighlight(type: .moon(weather: weather), order: .first, weather: weather)
-                WeatherHighlight(type: .feelsLike(weather: weather), order: .second, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .moon(weather: weather), order: .first, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .feelsLike(weather: weather), order: .second, weather: weather)
                     .padding()
-                WeatherHighlight(type: .percipitation(weather: weather), order: .third, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .percipitation(weather: weather), order: .third, weather: weather)
             }
             HStack {
-                WeatherHighlight(type: .uv(weather: weather), order: .first, weather: weather)
-                WeatherHighlight(type: .wind(weather: weather), order: .second, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .uv(weather: weather), order: .first, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .wind(weather: weather), order: .second, weather: weather)
                     .padding()
-                WeatherHighlight(type: .humidity(weather: weather), order: .third, weather: weather)
+                WeatherHighlight(displayDetails: .constant(false), type: .humidity(weather: weather), order: .third, weather: weather)
             }
         }
         

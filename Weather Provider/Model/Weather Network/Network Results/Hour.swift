@@ -25,7 +25,7 @@ struct Hour: Codable {
     var willItRain, chanceOfRain, willItSnow, chanceOfSnow: Int
     var visKM, visMiles: Double
     var gustMph, gustKph: Double
-    var uv: Int
+    var uv: Double
     
     var twelveHourTime: String? {
         let formatter = DateFormatter()
